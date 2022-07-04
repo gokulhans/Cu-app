@@ -47,16 +47,16 @@ Future getPdfs(var endpoint) async {
   var response = await http.get(Uri.https('studygramcu.herokuapp.com', link));
   var jsonData = jsonDecode(response.body);
 
-  List<Videos> videos = [];
+  List<Pdfs> pdfs = [];
 
   for (var u in jsonData) {
-    Videos video =
-        Videos(u["_id"], u["name"], u["link"], u["type"], u["item"], u["user"]);
-    videos.add(video);
+    Pdfs pdf =
+        Pdfs(u["_id"], u["name"], u["link"], u["item"], u["user"]);
+    pdfs.add(pdf);
   }
 
 
-  return videos;
+  return pdfs;
 }
 
 Future getPyqs(var endpoint) async {
@@ -65,14 +65,14 @@ Future getPyqs(var endpoint) async {
   var response = await http.get(Uri.https('studygramcu.herokuapp.com', link));
   var jsonData = jsonDecode(response.body);
 
-  List<Videos> videos = [];
+  List<Pyqs> pyqs = [];
 
   for (var u in jsonData) {
-    Videos video =
-        Videos(u["_id"], u["name"], u["link"], u["type"], u["item"], u["user"]);
-    videos.add(video);
+    Pyqs pyq =
+        Pyqs(u["_id"], u["name"], u["link"],u["item"], u["user"]);
+    pyqs.add(pyq);
   }
 
 
-  return videos;
+  return pyqs;
 }
