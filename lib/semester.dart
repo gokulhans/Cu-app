@@ -74,7 +74,7 @@ class Semlist extends StatelessWidget {
               context,
               MaterialPageRoute(
                   builder: (context) => Subject(
-                        title: title+semesters[index],
+                        title: title+'/'+semesters[index]+'/',
                       )),
             );
           },

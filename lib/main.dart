@@ -4,7 +4,6 @@
 import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:note_app/demoad.dart';
 import 'package:note_app/home.dart';
 import 'package:note_app/courses.dart';
@@ -19,11 +18,10 @@ import 'package:note_app/file.dart';
 import 'package:note_app/login.dart';
 import 'package:note_app/splashscreen.dart';
 import 'package:note_app/noti.dart';
-import 'package:note_app/admobhelper.dart';
+import 'package:note_app/yt.dart';
 
 void main() {
   runApp(const MyApp());
-  MobileAds.instance.initialize();
 }
 
 class MyApp extends StatelessWidget {
@@ -53,13 +51,17 @@ class MyApp extends StatelessWidget {
           );
         },
         'module': (ctx) {
-          return const Module();
+          return Module(title: 'd');
         },
         'type': (ctx) {
-          return const Type();
+          return const Type(
+            title: 'd',
+          );
         },
         'file': (ctx) {
-          return const File();
+          return File(
+            title: 'dh',
+          );
         },
         'login': (ctx) {
           return const MyLogin();
@@ -71,7 +73,7 @@ class MyApp extends StatelessWidget {
         // return const New_Note();
         // },
         'noti': (ctx) {
-          return DemoAd();
+          return YtPage();
         },
       },
       debugShowCheckedModeBanner: false,

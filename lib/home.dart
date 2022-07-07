@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:note_app/semester.dart';
@@ -7,7 +9,7 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold( 
+    return Scaffold(
       body: MainPage(),
     );
   }
@@ -66,305 +68,276 @@ class _MainPageState extends State<MainPage> {
                     shrinkWrap: true,
                     crossAxisCount: 3,
                     children: <Widget>[
-                      Column(
-                        children: <Widget>[
-                          Container(
-                            height: 64,
-                            width: 64,
-                            decoration: BoxDecoration(
-                                color: Colors.yellow,
-                                shape: BoxShape.circle,
-                                boxShadow: [
-                                  BoxShadow(
-                                      color: Colors.black.withOpacity(0.05),
-                                      blurRadius: 3,
-                                      spreadRadius: 4)
-                                ]),
-                          ),
-                          SizedBox(
-                            height: 8,
-                          ),
-                          TextButton(
-                            child: Text("Bca"),
-                            onPressed: () {
-                              var title = 'Bca/';
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => Semester(
-                                          title: title,
-                                        )),
-                              );
-                            },
-                          )
-                        ],
-                      ),
-                      Container(
+                      TextButton(
+                        onPressed: () {
+                          var title = 'Bca';
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => Semester(
+                                      title: title,
+                                    )),
+                          );
+                        },
                         child: Column(
                           children: <Widget>[
                             Container(
-                              height: 64,
-                              width: 64,
-                              decoration: BoxDecoration(
-                                  color: Colors.green,
-                                  shape: BoxShape.circle,
-                                  boxShadow: [
-                                    BoxShadow(
-                                        color: Colors.black.withOpacity(0.05),
-                                        blurRadius: 3,
-                                        spreadRadius: 4)
-                                  ]),
-                            ),
+                                height: 72,
+                                width: 72,
+                                decoration: BoxDecoration(
+                                    color: Color.fromARGB(255, 255, 174, 0),
+                                    shape: BoxShape.circle,
+                                    boxShadow: [
+                                      BoxShadow(
+                                          color: Colors.black.withOpacity(0.05),
+                                          blurRadius: 3,
+                                          spreadRadius: 4)
+                                    ]),
+                                child: Center(
+                                    child: const Text(
+                                  "BCA",
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w900,
+                                      fontSize: 16),
+                                ))),
                             SizedBox(
-                              height: 8,
+                              height: 10,
                             ),
-                             TextButton(
-                            child: Text("Bsc CS"),
-                            onPressed: () {
-                              var title = 'Bsc-CS/Semester-1';
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => Semester(
-                                          title: title,
-                                        )),
-                              );
-                            },
-                          )
+                            Text("Bca")
                           ],
                         ),
                       ),
-                      Container(
+                      TextButton(
+                        onPressed: () {
+                          var title = 'Bsc-CS';
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => Semester(
+                                      title: title,
+                                    )),
+                          );
+                        },
                         child: Column(
                           children: <Widget>[
                             Container(
-                              height: 64,
-                              width: 64,
-                              decoration: BoxDecoration(
-                                  color: Colors.blue,
-                                  shape: BoxShape.circle,
-                                  boxShadow: [
-                                    BoxShadow(
-                                        color: Colors.black.withOpacity(0.05),
-                                        blurRadius: 3,
-                                        spreadRadius: 4)
-                                  ]),
-                            ),
+                                height: 72,
+                                width: 72,
+                                decoration: BoxDecoration(
+                                    color: Colors.green,
+                                    shape: BoxShape.circle,
+                                    boxShadow: [
+                                      BoxShadow(
+                                          color: Colors.black.withOpacity(0.05),
+                                          blurRadius: 3,
+                                          spreadRadius: 4)
+                                    ]),
+                                child: Center(
+                                    child: const Text(
+                                  "CS",
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w900,
+                                      fontSize: 16),
+                                ))),
                             SizedBox(
-                              height: 8,
+                              height: 10,
                             ),
-                             TextButton(
-                            child: Text("Bcom"),
-                            onPressed: () {
-                              var title = 'Bcom/Semester-1';
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => Semester(
-                                          title: title,
-                                        )),
-                              );
-                            },
-                          )
+                            Text("Bsc CS")
                           ],
                         ),
                       ),
-                      Container(
+                      TextButton(
+                        onPressed: () {
+                          var title = 'Bcom';
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => Semester(
+                                      title: title,
+                                    )),
+                          );
+                        },
                         child: Column(
                           children: <Widget>[
                             Container(
-                              height: 64,
-                              width: 64,
-                              decoration: BoxDecoration(
-                                  color: Colors.red,
-                                  shape: BoxShape.circle,
-                                  boxShadow: [
-                                    BoxShadow(
-                                        color: Colors.black.withOpacity(0.05),
-                                        blurRadius: 3,
-                                        spreadRadius: 4)
-                                  ]),
-                            ),
+                                height: 72,
+                                width: 72,
+                                decoration: BoxDecoration(
+                                    color: Colors.blue,
+                                    shape: BoxShape.circle,
+                                    boxShadow: [
+                                      BoxShadow(
+                                          color: Colors.black.withOpacity(0.05),
+                                          blurRadius: 3,
+                                          spreadRadius: 4)
+                                    ]),
+                                child: Center(
+                                    child: const Text(
+                                  "BCOM",
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w900,
+                                      fontSize: 16),
+                                ))),
                             SizedBox(
-                              height: 8,
+                              height: 10,
                             ),
-                             TextButton(
-                            child: Text("BBA"),
-                            onPressed: () {
-                              var title = 'BBA/Semester-1';
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => Semester(
-                                          title: title,
-                                        )),
-                              );
-                            },
-                          )
+                            Text("Bcom")
                           ],
                         ),
                       ),
-                      Container(
+                      TextButton(
+                        onPressed: () {
+                          var title = 'BBA';
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => Semester(
+                                      title: title,
+                                    )),
+                          );
+                        },
                         child: Column(
                           children: <Widget>[
                             Container(
-                              height: 64,
-                              width: 64,
-                              decoration: BoxDecoration(
-                                  color: Colors.purple,
-                                  shape: BoxShape.circle,
-                                  boxShadow: [
-                                    BoxShadow(
-                                        color: Colors.black.withOpacity(0.05),
-                                        blurRadius: 3,
-                                        spreadRadius: 4)
-                                  ]),
-                            ),
+                                height: 72,
+                                width: 72,
+                                decoration: BoxDecoration(
+                                    color: Colors.deepPurpleAccent[400],
+                                    shape: BoxShape.circle,
+                                    boxShadow: [
+                                      BoxShadow(
+                                          color: Colors.black.withOpacity(0.05),
+                                          blurRadius: 3,
+                                          spreadRadius: 4)
+                                    ]),
+                                child: Center(
+                                    child: const Text(
+                                  "BBA",
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w900,
+                                      fontSize: 16),
+                                ))),
                             SizedBox(
-                              height: 8,
+                              height: 10,
                             ),
-                            TextButton(
-                              child: Text("BSc Physics"),
-                              onPressed: () {
-                                Navigator.of(context).pushNamed('semester');
-                                // Navigator.pushReplacement(
-                                //     context,
-                                //     MaterialPageRoute(
-                                //         builder: (context) => Semester()));
-                              },
-                            )
+                            Text("BBA")
                           ],
                         ),
                       ),
-                      Container(
+                      TextButton(
+                        onPressed: () {
+                          var title = 'Bscpsychology';
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => Semester(
+                                      title: title,
+                                    )),
+                          );
+                        },
                         child: Column(
                           children: <Widget>[
                             Container(
-                              height: 64,
-                              width: 64,
-                              decoration: BoxDecoration(
-                                  color: Colors.lightGreenAccent,
-                                  shape: BoxShape.circle,
-                                  boxShadow: [
-                                    BoxShadow(
-                                        color: Colors.black.withOpacity(0.05),
-                                        blurRadius: 3,
-                                        spreadRadius: 4)
-                                  ]),
-                            ),
+                                height: 72,
+                                width: 72,
+                                decoration: BoxDecoration(
+                                    color: Colors.purple,
+                                    shape: BoxShape.circle,
+                                    boxShadow: [
+                                      BoxShadow(
+                                          color: Colors.black.withOpacity(0.05),
+                                          blurRadius: 3,
+                                          spreadRadius: 4)
+                                    ]),
+                                child: Center(
+                                    child: const Text(
+                                  "PSYCH",
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w900,
+                                      fontSize: 16),
+                                ))),
                             SizedBox(
-                              height: 8,
+                              height: 10,
                             ),
-                            TextButton(
-                              child: Text("BSc Chemistry"),
-                              onPressed: () {
-                                Navigator.of(context).pushNamed('semester');
-                                // Navigator.pushReplacement(
-                                //     context,
-                                //     MaterialPageRoute(
-                                //         builder: (context) => Semester()));
-                              },
-                            )
+                            Text("BSc Psychology")
                           ],
                         ),
                       ),
-                      Container(
+                      TextButton(
+                        onPressed: () {
+                          var title = 'BAEnglish';
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => Semester(
+                                      title: title,
+                                    )),
+                          );
+                        },
                         child: Column(
                           children: <Widget>[
                             Container(
-                              height: 64,
-                              width: 64,
-                              decoration: BoxDecoration(
-                                  color: Colors.lightGreenAccent,
-                                  shape: BoxShape.circle,
-                                  boxShadow: [
-                                    BoxShadow(
-                                        color: Colors.black.withOpacity(0.05),
-                                        blurRadius: 3,
-                                        spreadRadius: 4)
-                                  ]),
-                            ),
+                                height: 72,
+                                width: 72,
+                                decoration: BoxDecoration(
+                                    color: Colors.red,
+                                    shape: BoxShape.circle,
+                                    boxShadow: [
+                                      BoxShadow(
+                                          color: Colors.black.withOpacity(0.05),
+                                          blurRadius: 3,
+                                          spreadRadius: 4)
+                                    ]),
+                                child: Center(
+                                    child: const Text(
+                                  "ENG",
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w900,
+                                      fontSize: 16),
+                                ))),
                             SizedBox(
-                              height: 8,
+                              height: 10,
                             ),
-                            TextButton(
-                              child: Text("BSc Chemistry"),
-                              onPressed: () {
-                                Navigator.of(context).pushNamed('semester');
-                                // Navigator.pushReplacement(
-                                //     context,
-                                //     MaterialPageRoute(
-                                //         builder: (context) => Semester()));
-                              },
-                            )
-                          ],
-                        ),
-                      ),
-                      Container(
-                        child: Column(
-                          children: <Widget>[
-                            Container(
-                              height: 64,
-                              width: 64,
-                              decoration: BoxDecoration(
-                                  color: Colors.green,
-                                  shape: BoxShape.circle,
-                                  boxShadow: [
-                                    BoxShadow(
-                                        color: Colors.black.withOpacity(0.05),
-                                        blurRadius: 3,
-                                        spreadRadius: 4)
-                                  ]),
-                            ),
-                            SizedBox(
-                              height: 8,
-                            ),
-                            TextButton(
-                              child: Text("BSc Maths"),
-                              onPressed: () {
-                                Navigator.of(context).pushNamed('semester');
-                                // Navigator.pushReplacement(
-                                //     context,
-                                //     MaterialPageRoute(
-                                //         builder: (context) => Semester()));
-                              },
-                            )
-                          ],
-                        ),
-                      ),
-                      Container(
-                        child: Column(
-                          children: <Widget>[
-                            Container(
-                              height: 64,
-                              width: 64,
-                              decoration: BoxDecoration(
-                                  color: Colors.blue,
-                                  shape: BoxShape.circle,
-                                  boxShadow: [
-                                    BoxShadow(
-                                        color: Colors.black.withOpacity(0.05),
-                                        blurRadius: 3,
-                                        spreadRadius: 4)
-                                  ]),
-                            ),
-                            const SizedBox(
-                              height: 8,
-                            ),
-                            TextButton(
-                              child: Text("New Note"),
-                              onPressed: () {
-                                Navigator.of(context).pushNamed('new');
-                                // Navigator.pushReplacement(
-                                //     context,
-                                //     MaterialPageRoute(
-                                //         builder: (context) => Semester()));
-                              },
-                            )
+                            Text("BA English")
                           ],
                         ),
                       ),
                     ],
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(left: 30, right: 30, top: 10,bottom: 10),
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.green,
+                      boxShadow: [
+                        const BoxShadow(color: Colors.green, spreadRadius: 3),
+                      ],
+                    ),
+                    child: TextButton(
+                        onPressed: () {
+                          var title = 'Common-Subjects';
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => Semester(
+                                      title: title,
+                                    )),
+                          );
+                        },
+                        child: Text(
+                          "Common Courses",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w900,
+                              fontSize: 20),
+                        )),
                   ),
                   Center(
                     child: Container(
@@ -395,6 +368,9 @@ class _MainPageState extends State<MainPage> {
                       ),
                     ),
                   ),
+                  SizedBox(
+                    height: 8,
+                  )
                 ]),
               ),
             ],

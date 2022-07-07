@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:note_app/methods/fetchData.dart';
+import 'package:note_app/module.dart';
+import 'package:note_app/type.dart';
 
 class Subject extends StatelessWidget {
   const Subject({Key? key, required this.title}) : super(key: key);
@@ -84,8 +86,13 @@ class _SublistState extends State<Sublist> {
                                             fontSize: 18),
                                       ),
                                       onPressed: () {
-                                        Navigator.of(context)
-                                            .pushNamed('module');
+                                        // Navigator.of(context)
+                                        //     .pushNamed('module');
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) => Type(title:widget.title+snapshot.data[i].name + '/')),
+                                        );
                                       }),
                                 ),
                                 // ListTile(

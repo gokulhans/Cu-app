@@ -26,16 +26,13 @@ Future getSubjects(var endpoint) async {
   return courses;
 }
 
-Future getSemesters(var endpoint) async {
-  List<String> semesters = ['Semster-1','Semester-2'];
-  return semesters;
-}
-
-Future getVideos() async {
+Future getVideos(var endpoint) async {
   print('called1');
+  var link = '/videos/' + endpoint;
+  print(link);
+  print('d');
 
-  var response = await http.get(Uri.https(
-      'studygramcu.herokuapp.com', 'videos/Bca/Semester-1/MFCA/module1'));
+  var response = await http.get(Uri.https('studygramcu.herokuapp.com', 'videos/Bca/Semester-1/MFCA/module1'));
   var jsonData = jsonDecode(response.body);
 
   List<Videos> videos = [];
@@ -46,6 +43,7 @@ Future getVideos() async {
         Videos(u["_id"], u["name"], u["link"], u["type"], u["item"], u["user"]);
     videos.add(video);
   }
+
   print('called2');
   print(videos);
 
