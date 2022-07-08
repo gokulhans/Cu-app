@@ -14,70 +14,56 @@ class File extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Videos'),
       ),
-      body: Tt(
+      body: Videoscreen(
         title: title,
       ),
     );
   }
 }
 
-class Tt extends StatelessWidget {
-  const Tt({Key? key, required this.title}) : super(key: key);
+class Videoscreen extends StatelessWidget {
+  const Videoscreen({Key? key, required this.title}) : super(key: key);
   final String title;
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        SingleChildScrollView(
-          child: FutureBuilder(
-              future: getVideos(title),
-              builder: (context, AsyncSnapshot snapshot) {
-                if (snapshot.data == null) {
-                  return Center(
-                    child: Text('loading'),
-                  );
-                } else {
-                  return SingleChildScrollView(
-                    padding: const EdgeInsets.only(
-                      left: 12,
-                      right: 12,
-                      top: 12,
+    return FutureBuilder(
+        future: getVideos(title),
+        builder: (context, AsyncSnapshot snapshot) {
+          if (snapshot.data == null) {
+            return const Center(
+              child: Text('loading'),
+            );
+          } else {
+            return ListView.builder(
+                scrollDirection: Axis.vertical,
+                shrinkWrap: true,
+                itemCount: snapshot.data.length,
+                itemBuilder: (context, i) {
+                  return TextButton(
+                    onPressed: () async {
+                      var url = 'https://youtu.be/' + snapshot.data[i].link;
+                      if (await canLaunchUrl(Uri.parse(url))) {
+                        await launchUrl(Uri.parse(url),mode: LaunchMode.externalNonBrowserApplication);
+                          //  await launch(url,
+                          //   forceWebView: false, enableJavaScript: true);
+                      } else {
+                        throw 'Could not launch $url';
+                      }
+                    },
+                    child: FittedBox(
+                      child: Image.network(
+                        'https://img.youtube.com/vi/' +
+                            snapshot.data[i].link +
+                            '/0.jpg',
+                        width: 400.0,
+                      ),
+                      fit: BoxFit.fill,
                     ),
-                    child: ListView.builder(
-                        scrollDirection: Axis.vertical,
-                        shrinkWrap: true,
-                        itemCount: snapshot.data.length,
-                        itemBuilder: (context, i) {
-                          return SingleChildScrollView(
-                            child: TextButton(
-                                          onPressed: () async {
-                                            var url = 'https://youtu.be/'+snapshot.data[i].link;
-                                            if (await canLaunchUrl(Uri.parse(url))) {
-                                              await launch(url,
-                                                  forceWebView: true, enableJavaScript: true);
-                                            } else {
-                                              throw 'Could not launch $url';
-                                            }
-                                          },
-                                          child: FittedBox(
-                                            child: Image.network(
-                                              'https://img.youtube.com/vi/' + 
-                                                  snapshot.data[i].link +
-                                                  '/0.jpg',
-                                              width: 400.0,
-                                            ),
-                                            fit: BoxFit.fill,
-                                          ),
-                                ),
-                          );
-                        }),
                   );
-                }
-              }),
-        ),
-      ],
-    );
+                });
+          }
+        });
   }
 }
 
