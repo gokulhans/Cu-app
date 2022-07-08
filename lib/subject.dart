@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:note_app/methods/fetchData.dart';
 import 'package:note_app/module.dart';
 import 'package:note_app/type.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class Subject extends StatelessWidget {
   const Subject({Key? key, required this.title}) : super(key: key);
@@ -14,10 +15,8 @@ class Subject extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Select Subject'),
         systemOverlayStyle: const SystemUiOverlayStyle(
-          // Status bar color
           statusBarColor: Colors.green,
-          // Status bar brightness (optional)
-          statusBarIconBrightness: Brightness.dark, // For Android (dark icons)
+          statusBarIconBrightness: Brightness.dark,
         ),
       ),
       body: Sublist(title: title),
@@ -45,8 +44,11 @@ class _SublistState extends State<Sublist> {
                   future: getSubjects(widget.title),
                   builder: (context, AsyncSnapshot snapshot) {
                     if (snapshot.data == null) {
-                      return Center(
-                        child: Text('loading'),
+                      return const Center(
+                        child: SpinKitCircle(
+                          size: 80,
+                          color: Colors.blue,
+                        ),
                       );
                     } else {
                       return Container(

@@ -7,12 +7,12 @@ class Semester extends StatelessWidget {
 final String title;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Scaffold( 
       appBar: AppBar(
         title: const Text('Select Semester'),
         systemOverlayStyle: const SystemUiOverlayStyle(
           // Status bar color
-          statusBarColor: Colors.white,
+          statusBarColor: Colors.green,
           // Status bar brightness (optional)
           statusBarIconBrightness: Brightness.dark, // For Android (dark icons)
         ),
