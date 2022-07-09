@@ -1,5 +1,4 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:note_app/semester.dart';
@@ -38,28 +37,7 @@ class _MainPageState extends State<MainPage> {
                   SizedBox(
                     height: 12,
                   ),
-                  Container(
-                    height: 48,
-                    width: MediaQuery.of(context).size.width,
-                    margin: EdgeInsets.only(left: 24, right: 24),
-                    padding: EdgeInsets.only(left: 16, right: 16),
-                    decoration: BoxDecoration(
-                        color: Colors.blueGrey[50],
-                        borderRadius: BorderRadius.circular(16)),
-                    child: const TextField(
-                      decoration: InputDecoration(
-                        icon: Icon(
-                          Icons.search,
-                          size: 14,
-                        ),
-                        hintText: "Search for your chapter, classes...",
-                        hintStyle: TextStyle(
-                          fontSize: 12,
-                        ),
-                        border: InputBorder.none,
-                      ),
-                    ),
-                  ),
+                  
                   SizedBox(
                     height: 24,
                   ),
@@ -310,6 +288,9 @@ class _MainPageState extends State<MainPage> {
                       ),
                     ],
                   ),
+                  SizedBox(
+                              height: 20,
+                            ),
                   Container(
                     margin: EdgeInsets.only(left: 30, right: 30, top: 10,bottom: 10),
                     width: double.infinity,
@@ -369,7 +350,7 @@ class _MainPageState extends State<MainPage> {
                     ),
                   ),
                   SizedBox(
-                    height: 8,
+                    height: 4,
                   )
                 ]),
               ),

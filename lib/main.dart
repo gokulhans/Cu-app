@@ -19,7 +19,7 @@ void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatelessWidget { 
   const MyApp({Key? key}) : super(key: key);
 
   @override
@@ -68,7 +68,7 @@ class MyApp extends StatelessWidget {
         // return const New_Note();
         // },
         'noti': (ctx) {
-          return Noti();
+          return const Noti();
         },
       },
       debugShowCheckedModeBanner: false,
@@ -144,9 +144,7 @@ class _MainPageState extends State<MainPage> {
               badgeContent: Text(""),
             ),
             onPressed: () {
-              // AdmobHelper.createInterad();
-              // AdmobHelper.showInterad();
-              Navigator.of(context).pushNamed('noti');
+              // Navigator.of(context).pushNamed('noti');
             },
           )
         ],

@@ -44,8 +44,8 @@ class Semlist extends StatelessWidget {
           child: Column(
             children: <Widget>[
               Container(
-                height: 72,
-                width: 72,
+                height: 66,
+                width: 66,
                 decoration: BoxDecoration(
                     color: Colors.blue,
                     shape: BoxShape.circle,

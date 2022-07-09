@@ -1,11 +1,12 @@
 import 'dart:convert';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:note_app/methods/fetchdata.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class Pdf extends StatelessWidget {
-  const Pdf({Key? key, required this.title}) : super(key: key);
+class Pyqp extends StatelessWidget {
+  const Pyqp({Key? key, required this.title}) : super(key: key);
   final String title;
   @override
   Widget build(BuildContext context) {
@@ -13,15 +14,15 @@ class Pdf extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Previous year question paper'),
       ),
-      body: Pdfscreen(
+      body: Pyqpscreen(
         title: title,
       ),
     );
   }
 }
 
-class Pdfscreen extends StatelessWidget {
-  const Pdfscreen({Key? key, required this.title}) : super(key: key);
+class Pyqpscreen extends StatelessWidget {
+  const Pyqpscreen({Key? key, required this.title}) : super(key: key);
   final String title;
 
   @override
@@ -31,7 +32,10 @@ class Pdfscreen extends StatelessWidget {
         builder: (context, AsyncSnapshot snapshot) {
           if (snapshot.data == null) {
             return const Center(
-              child: Text('loading'),
+              child: SpinKitCircle(
+                size: 80,
+                color: Colors.blue,
+              ),
             );
           } else {
             return ListView.builder(
@@ -43,15 +47,19 @@ class Pdfscreen extends StatelessWidget {
                     onPressed: () async {
                       var url = snapshot.data[i].link;
                       if (await canLaunchUrl(Uri.parse(url))) {
-                        await launchUrl(Uri.parse(url),mode: LaunchMode.inAppWebView);
-                          //  await launch(url,
-                          //   forceWebView: false, enableJavaScript: true);
+                        await launchUrl(Uri.parse(url),
+                            mode: LaunchMode.externalApplication);
+                        //  await launch(url,
+                        //   forceWebView: false, enableJavaScript: true);
                       } else {
                         throw 'Could not launch $url';
                       }
                     },
-                    child: Text(snapshot.data[i].name),
-
+                    child: Text(
+                      snapshot.data[i].name,
+                      style:
+                          TextStyle(fontWeight: FontWeight.w800, fontSize: 16),
+                    ),
                   );
                 });
           }

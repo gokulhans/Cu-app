@@ -1,8 +1,6 @@
-import 'dart:convert';
-import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:note_app/module.dart';
-import 'package:note_app/pdf.dart';
+import 'package:note_app/pyqp.dart';
 
 class Type extends StatelessWidget {
   const Type({Key? key, required this.title}) : super(key: key);
@@ -83,8 +81,8 @@ class _TypelistState extends State<Typelist> {
           //   trailing: Text(snapshot.data[i]._id),
           // ),
         ),
-        const SizedBox(
-          height: 8,
+           const SizedBox(
+          height: 12,
         ),
         Container(
           height: 60,
@@ -105,7 +103,7 @@ class _TypelistState extends State<Typelist> {
           child: Center(
         child: TextButton(
             child: Text(
-              'PDF',
+              'Q Pappers',
               style: const TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.w900,
@@ -117,7 +115,7 @@ class _TypelistState extends State<Typelist> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => Pdf(title: widget.title)),
+                    builder: (context) => Pyqp(title: widget.title)),
               );
             }),
           ),

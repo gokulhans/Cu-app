@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "124642772982",
+    "project_id": "studygram-14973",
+    "storage_bucket": "studygram-14973.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:124642772982:android:5a399749ffb11d1b44e9d7",
+        "android_client_info": {
+          "package_name": "com.example.note_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "124642772982-u62us2agmtqcjlcuq5goi1hkph24dko2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJ8XvGaX1V_j0_4qWuIw1XCPrqPwt47-c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "124642772982-u62us2agmtqcjlcuq5goi1hkph24dko2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

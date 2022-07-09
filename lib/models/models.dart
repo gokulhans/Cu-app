@@ -9,8 +9,8 @@ class Courses {
   Courses(this._id, this.name, this.item);
 }
 class Pyqs {
-  final String _id, name, item,link,user;
-  Pyqs(this._id, this.name, this.item,this.link,this.user);
+  final String _id, name, link,item,user;
+  Pyqs(this._id, this.name, this.link,this.item,this.user);
 }
 
 class Pdfs {

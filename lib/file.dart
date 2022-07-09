@@ -34,32 +34,42 @@ class Videoscreen extends StatelessWidget {
           if (snapshot.data == null) {
             return const Center(
               child: SpinKitCircle(
-                          size: 80,
-                          color: Colors.blue,
-                        ),
+                size: 80,
+                color: Colors.blue,
+              ),
             );
           } else {
-            return ListView.builder(
-                scrollDirection: Axis.vertical,
-                shrinkWrap: true,
-                itemCount: snapshot.data.length,
-                itemBuilder: (context, i) {
-                  return TextButton(
-                    onPressed: () async {
-                      var url = 'https://youtu.be/' + snapshot.data[i].link;
-                      if (await canLaunchUrl(Uri.parse(url))) {
-                        await launchUrl(Uri.parse(url),mode: LaunchMode.externalNonBrowserApplication);
+            if (snapshot.data.length == 0) {
+              return const Center(
+                  child: Text(
+                      'This Page is Empty',style: TextStyle(fontWeight: FontWeight.w800),));
+            } else {
+              return ListView.builder(
+                  scrollDirection: Axis.vertical,
+                  shrinkWrap: true,
+                  itemCount: snapshot.data.length,
+                  itemBuilder: (context, i) {
+                    return TextButton(
+                      onPressed: () async {
+                        var url = 'https://youtu.be/' + snapshot.data[i].link;
+                        if (await canLaunchUrl(Uri.parse(url))) {
+                          await launchUrl(Uri.parse(url),
+                              mode: LaunchMode.externalNonBrowserApplication);
                           //  await launch(url,
                           //   forceWebView: false, enableJavaScript: true);
-                      } else {
-                        throw 'Could not launch $url';
-                      }
-                    },
-                    child: FittedBox(
-                      child: Text("data")
-                    ),
-                  );
-                });
+                        } else {
+                          throw 'Could not launch $url';
+                        }
+                      },
+                      child: FittedBox(
+                          child: Text(
+                        snapshot.data[i].name,
+                        style: TextStyle(
+                            fontSize: 15, fontWeight: FontWeight.w800),
+                      )),
+                    );
+                  });
+            }
           }
         });
   }

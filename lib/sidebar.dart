@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class NavDrawer extends StatelessWidget {
   @override
@@ -7,41 +8,94 @@ class NavDrawer extends StatelessWidget {
       child: ListView(
         padding: EdgeInsets.zero,
         children: <Widget>[
-          const DrawerHeader(
-            child: Text(
-              'Studygram',
-              style: TextStyle(color: Colors.white, fontSize: 25),
+           DrawerHeader(
+            child: Center(
+              child: Container(
+              height: 100,
+              width: 100,
+              decoration: const BoxDecoration(
+                  image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image: AssetImage('assets/logo.png'),
+                      )),
+              ),
             ),
-            decoration: BoxDecoration(
-                color: Colors.teal,
-                image:
-                    DecorationImage(fit: BoxFit.fill, image: AssetImage(''))),
           ),
           ListTile(
             leading: Icon(Icons.input),
             title: Text('Welcome'),
-            onTap: () => {},
+            onTap: () async {
+              var url = "https://codesinsider.com";
+              if (await canLaunchUrl(Uri.parse(url))) {
+                await launchUrl(Uri.parse(url),
+                    mode: LaunchMode.externalNonBrowserApplication);
+              } else {
+                throw 'Could not launch $url';
+              }
+            },
           ),
           ListTile(
-            leading: Icon(Icons.verified_user),
-            title: Text('Profile'),
-            onTap: () => {Navigator.of(context).pop()},
+            leading: Icon(Icons.telegram),
+            title: Text('Telegram'),
+            onTap: () async {
+              var url = "https://codesinsider.com";
+              if (await canLaunchUrl(Uri.parse(url))) {
+                await launchUrl(Uri.parse(url),
+                    mode: LaunchMode.externalNonBrowserApplication);
+              } else {
+                throw 'Could not launch $url';
+              }
+            },
           ),
           ListTile(
-            leading: Icon(Icons.settings),
-            title: Text('Settings'),
-            onTap: () => {Navigator.of(context).pop()},
+            leading: Icon(Icons.whatsapp),
+            title: Text('Whatsapp'),
+            onTap: () async {
+              var url = "https://codesinsider.com";
+              if (await canLaunchUrl(Uri.parse(url))) {
+                await launchUrl(Uri.parse(url),
+                    mode: LaunchMode.externalNonBrowserApplication);
+              } else {
+                throw 'Could not launch $url';
+              }
+            },
           ),
           ListTile(
-            leading: Icon(Icons.border_color),
-            title: Text('Feedback'),
-            onTap: () => {Navigator.of(context).pop()},
+            leading: Icon(Icons.thumb_up),
+            title: Text('Instagram'),
+            onTap: () async {
+              var url = "https://codesinsider.com";
+              if (await canLaunchUrl(Uri.parse(url))) {
+                await launchUrl(Uri.parse(url),
+                    mode: LaunchMode.externalNonBrowserApplication);
+              } else {
+                throw 'Could not launch $url';
+              }
+            },
           ),
           ListTile(
-            leading: Icon(Icons.exit_to_app),
-            title: Text('Logout'),
-            onTap: () => {Navigator.of(context).pop()},
+            leading: Icon(Icons.info),
+            title: Text('About Us'),
+            onTap: () async {
+              var url = "https://codesinsider.com";
+              if (await canLaunchUrl(Uri.parse(url))) {
+                await launchUrl(Uri.parse(url),
+                    mode: LaunchMode.externalNonBrowserApplication);
+              } else {
+                throw 'Could not launch $url';
+              }
+            },
           ),
+          // ListTile(
+          //   leading: Icon(Icons.border_color),
+          //   title: Text('Feedback'),
+          //   onTap: () => {Navigator.of(context).pop()},
+          // ),
+          // ListTile(
+          //   leading: Icon(Icons.exit_to_app),
+          //   title: Text('Logout'),
+          //   onTap: () => {Navigator.of(context).pop()},
+          // ),
         ],
       ),
     );

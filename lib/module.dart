@@ -32,61 +32,31 @@ class _ModlistState extends State<Modlist> {
   @override
   Widget build(BuildContext context) {
     List<String> modules = ['module1','module2','module3','module4','module5','module6','question-pappers','others'];
-    List<String> Modules = ['Module1','Module2','Module3','Module4','Module5','Module6','Q-Pappers','Others'];
+    List<String> modulename = ['Module 1','Module 2','Module 3','Module 4','Module 5','Module 6','Questions Pappers','Others'];
 
     return Scaffold(
         body: Container(
-          margin: EdgeInsets.only(top: 16),
+          margin: EdgeInsets.only(top: 8),
       child: Card(
           child: ListView.builder(
               itemCount: modules.length,
               itemBuilder: (context, i) {
-                return Container(
-                  height: 60,
-                  margin: const EdgeInsets.only(
-                    left: 12,
-                    right: 12,
-                    top: 6,
-                    bottom: 6,
-                  ),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(12),
-                    boxShadow: [
-                      BoxShadow(
-                          color: Colors.black.withOpacity(0.05),
-                          blurRadius: 3,
-                          spreadRadius: 4)
-                    ],
-                    color: Colors.blue,
-                  ),
-                  child: Center(
-                    child: TextButton(
-                        child: Text(
-                          Modules[i],
-                          style: const TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w900,
-                              fontSize: 18),
-                        ),
-                        onPressed: () {
-                          // Navigator.of(context)
-                          //     .pushNamed('module');
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => File(
-                                    title:
-                                        widget.title + modules[i]+'/')),
-                          );
-                        }),
-                  ),
-                  // ListTile(
-
-                  //   title: Text(snapshot.data[i].item),
-                  //   subtitle: Text(snapshot.data[i].name),
-                  //   trailing: Text(snapshot.data[i]._id),
-                  // ),
-                );
+                return TextButton(
+                    child: Text(
+                      modulename[i],
+                      style: const TextStyle(
+                          fontWeight: FontWeight.w800,
+                          fontSize: 16),
+                    ),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => File(
+                                title:
+                                    widget.title + modules[i]+'/')),
+                      );
+                    });
               })),
     ));
   }
