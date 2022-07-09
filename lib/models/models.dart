@@ -8,3 +8,12 @@ class Courses {
   final String _id, name, item;
   Courses(this._id, this.name, this.item);
 }
+class Pyqs {
+  final String _id, name, item,link,user;
+  Pyqs(this._id, this.name, this.item,this.link,this.user);
+}
+
+class Pdfs {
+  final String _id, name, item,link,user;
+  Pdfs(this._id, this.name, this.item,this.link,this.user);
+}
