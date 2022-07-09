@@ -34,64 +34,65 @@ class _TypelistState extends State<Typelist> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: ListView(
-          children: [
-            Container(
-            child: Card(
-                child: Container(
-      height: 60,
-      margin: const EdgeInsets.only(
-        left: 12,
-        right: 12,
+      children: [
+        SizedBox(
+          height: 16,
+        ),
+        
+        Container(
+          height: 60,
+          margin: const EdgeInsets.only(
+        left: 20,
+        right: 20,
         top: 6,
         bottom: 6,
-      ),
-      decoration: BoxDecoration(
+          ),
+          decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
         boxShadow: [
           BoxShadow(
-              color: Colors.black.withOpacity(0.05),
-              blurRadius: 3,
-              spreadRadius: 4)
+          color: Colors.black.withOpacity(0.05),
+          blurRadius: 3,
+          spreadRadius: 4)
         ],
         color: Colors.blue,
-      ),
-      child: Center(
+          ),
+          child: Center(
         child: TextButton(
-            child: Text(
-              'Videos',
-              style: const TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.w900,
-                  fontSize: 18),
-            ),
-            onPressed: () {
-              // Navigator.of(context)
-              //     .pushNamed('module');
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => Module(title: widget.title)),
-              );
-            }),
-      ),
-      // ListTile(
+        child: Text(
+          'Videos',
+          style: const TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.w900,
+              fontSize: 18),
+        ),
+        onPressed: () {
+          // Navigator.of(context)
+          //     .pushNamed('module');
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => Module(title: widget.title)),
+          );
+        }),
+          ),
+          // ListTile(
 
-      //   title: Text(snapshot.data[i].item),
-      //   subtitle: Text(snapshot.data[i].name),
-      //   trailing: Text(snapshot.data[i]._id),
-      // ),
-    ))),
-    Container(
-            child: Card(
-                child: Container(
-      height: 60,
-      margin: const EdgeInsets.only(
-        left: 12,
-        right: 12,
-        top: 6,
-        bottom: 6,
-      ),
-      decoration: BoxDecoration(
+          //   title: Text(snapshot.data[i].item),
+          //   subtitle: Text(snapshot.data[i].name),
+          //   trailing: Text(snapshot.data[i]._id),
+          // ),
+        ),
+        const SizedBox(
+          height: 8,
+        ),
+        Container(
+          height: 60,
+          margin: const EdgeInsets.only(
+        left: 20,
+        right: 20,
+          ),
+          decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
         boxShadow: [
           BoxShadow(
@@ -100,8 +101,8 @@ class _TypelistState extends State<Typelist> {
               spreadRadius: 4)
         ],
         color: Colors.blue,
-      ),
-      child: Center(
+          ),
+          child: Center(
         child: TextButton(
             child: Text(
               'PDF',
@@ -119,63 +120,15 @@ class _TypelistState extends State<Typelist> {
                     builder: (context) => Pdf(title: widget.title)),
               );
             }),
-      ),
-      // ListTile(
+          ),
+          // ListTile(
 
-      //   title: Text(snapshot.data[i].item),
-      //   subtitle: Text(snapshot.data[i].name),
-      //   trailing: Text(snapshot.data[i]._id),
-      // ),
-    ))),
-    Container(
-            child: Card(
-                child: Container(
-      height: 60,
-      margin: const EdgeInsets.only(
-        left: 12,
-        right: 12,
-        top: 6,
-        bottom: 6,
-      ),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(12),
-        boxShadow: [
-          BoxShadow(
-              color: Colors.black.withOpacity(0.05),
-              blurRadius: 3,
-              spreadRadius: 4)
-        ],
-        color: Colors.blue,
-      ),
-      child: Center(
-        child: TextButton(
-            child: Text(
-              'Videos',
-              style: const TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.w900,
-                  fontSize: 18),
-            ),
-            onPressed: () {
-              // Navigator.of(context)
-              //     .pushNamed('module');
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => Module(title: widget.title)),
-              );
-            }),
-      ),
-      // ListTile(
-
-      //   title: Text(snapshot.data[i].item),
-      //   subtitle: Text(snapshot.data[i].name),
-      //   trailing: Text(snapshot.data[i]._id),
-      // ),
-    )))
-          ],
-        )
-    );
+          //   title: Text(snapshot.data[i].item),
+          //   subtitle: Text(snapshot.data[i].name),
+          //   trailing: Text(snapshot.data[i]._id),
+          // ),
+        ),
+      ],
+    ));
   }
 }
-

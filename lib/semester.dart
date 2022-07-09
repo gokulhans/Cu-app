@@ -30,6 +30,7 @@ class Semlist extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
   List<String> semesters = ['Semester-1','Semester-2','Semester-3','Semester-4','Semester-5','Semester-6'];
+  List<String> semname = ['S 1','S 2','S 3','S 4','S 5','S 6'];
     return Center(
         child: GridView.builder(
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -43,10 +44,10 @@ class Semlist extends StatelessWidget {
           child: Column(
             children: <Widget>[
               Container(
-                height: 60,
-                width: 64,
+                height: 72,
+                width: 72,
                 decoration: BoxDecoration(
-                    color: Colors.red,
+                    color: Colors.blue,
                     shape: BoxShape.circle,
                     boxShadow: [
                       BoxShadow(
@@ -54,10 +55,10 @@ class Semlist extends StatelessWidget {
                           blurRadius: 3,
                           spreadRadius: 4)
                     ]),
-                child: const Center(
+                child: Center(
                     child: Text(
-                  "S1",
-                  style: TextStyle(
+                  semname[index],
+                  style: const TextStyle(
                       fontWeight: FontWeight.w900,
                       fontSize: 18,
                       color: Colors.white),

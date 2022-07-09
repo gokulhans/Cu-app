@@ -1,10 +1,6 @@
-// import 'dart:convert';
-// import 'package:http/http.dart' as http;
-// import 'dart:async';
 import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:note_app/demoad.dart';
 import 'package:note_app/home.dart';
 import 'package:note_app/courses.dart';
 import 'package:note_app/profile.dart';
@@ -18,7 +14,6 @@ import 'package:note_app/file.dart';
 import 'package:note_app/login.dart';
 import 'package:note_app/splashscreen.dart';
 import 'package:note_app/noti.dart';
-import 'package:note_app/yt.dart';
 
 void main() {
   runApp(const MyApp());
@@ -73,7 +68,7 @@ class MyApp extends StatelessWidget {
         // return const New_Note();
         // },
         'noti': (ctx) {
-          return YtPage();
+          return Noti();
         },
       },
       debugShowCheckedModeBanner: false,

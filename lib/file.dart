@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:note_app/methods/fetchdata.dart';
@@ -32,7 +33,10 @@ class Videoscreen extends StatelessWidget {
         builder: (context, AsyncSnapshot snapshot) {
           if (snapshot.data == null) {
             return const Center(
-              child: Text('loading'),
+              child: SpinKitCircle(
+                          size: 80,
+                          color: Colors.blue,
+                        ),
             );
           } else {
             return ListView.builder(
@@ -52,13 +56,7 @@ class Videoscreen extends StatelessWidget {
                       }
                     },
                     child: FittedBox(
-                      child: Image.network(
-                        'https://img.youtube.com/vi/' +
-                            snapshot.data[i].link +
-                            '/0.jpg',
-                        width: 400.0,
-                      ),
-                      fit: BoxFit.fill,
+                      child: Text("data")
                     ),
                   );
                 });

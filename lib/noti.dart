@@ -11,7 +11,7 @@ class Noti extends StatelessWidget {
         title: const Text('All Notifications'),
         systemOverlayStyle: const SystemUiOverlayStyle(
           // Status bar color
-          statusBarColor: Colors.white,
+          statusBarColor: Colors.green,
           // Status bar brightness (optional)
           statusBarIconBrightness: Brightness.dark, // For Android (dark icons)
         ),

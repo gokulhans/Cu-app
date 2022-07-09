@@ -32,9 +32,11 @@ class _ModlistState extends State<Modlist> {
   @override
   Widget build(BuildContext context) {
     List<String> modules = ['module1','module2','module3','module4','module5','module6','question-pappers','others'];
+    List<String> Modules = ['Module1','Module2','Module3','Module4','Module5','Module6','Q-Pappers','Others'];
 
     return Scaffold(
         body: Container(
+          margin: EdgeInsets.only(top: 16),
       child: Card(
           child: ListView.builder(
               itemCount: modules.length,
@@ -60,7 +62,7 @@ class _ModlistState extends State<Modlist> {
                   child: Center(
                     child: TextButton(
                         child: Text(
-                          modules[i],
+                          Modules[i],
                           style: const TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.w900,
