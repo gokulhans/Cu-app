@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:note_app/module.dart';
 import 'package:note_app/pyqp.dart';
+import 'package:note_app/sidebar.dart';
 
 class Type extends StatelessWidget {
   const Type({Key? key, required this.title}) : super(key: key);
@@ -9,6 +10,7 @@ class Type extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: NavDrawer(),
       appBar: AppBar(
         title: const Text('Select Type'),
       ),

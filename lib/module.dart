@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:note_app/file.dart';
+import 'package:note_app/sidebar.dart';
 
 class Module extends StatelessWidget {
   const Module({Key? key, required this.title}) : super(key: key);
@@ -10,6 +11,7 @@ class Module extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: NavDrawer(),
       appBar: AppBar(
         title: const Text('Select Module'),
       ),

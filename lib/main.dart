@@ -1,6 +1,8 @@
 import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:note_app/aboutus.dart';
+import 'package:note_app/copyright.dart';
 import 'package:note_app/home.dart';
 import 'package:note_app/courses.dart';
 import 'package:note_app/profile.dart';
@@ -11,15 +13,14 @@ import 'package:note_app/module.dart';
 import 'package:note_app/syllabus.dart';
 import 'package:note_app/type.dart';
 import 'package:note_app/file.dart';
-import 'package:note_app/login.dart';
-import 'package:note_app/splashscreen.dart';
 import 'package:note_app/noti.dart';
+
 
 void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget { 
+class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
   @override
@@ -58,60 +59,60 @@ class MyApp extends StatelessWidget {
             title: 'dh',
           );
         },
-        'login': (ctx) {
-          return const MyLogin();
-        },
-        'splash': (ctx) {
-          return const Splash();
-        },
-        // 'new': (ctx) {
-        // return const New_Note();
-        // },
         'noti': (ctx) {
           return const Noti();
         },
+        'about': (ctx) {
+          return const AboutPage();
+        },
+        'copyright': (ctx) {
+          return const Copyright();
+        },
+        'home': (ctx) {
+          return MainPage();
+        },
       },
       debugShowCheckedModeBanner: false,
-      // home: MainPage(),
       home: Exithome(),
     );
   }
 }
 
-
-class Exithome extends StatelessWidget{
+class Exithome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-
     Future<bool> showExitPopup() async {
-      return await showDialog( //show confirm dialogue 
-        //the return value will be from "Yes" or "No" options
-        context: context,
-        builder: (context) => AlertDialog(
-          title: const Text('Exit App'),
-          content: const Text('Do you want to close Studygram ?',style: TextStyle(fontWeight: FontWeight.w600),),
-          actions:[
-            ElevatedButton(
-              onPressed: () => Navigator.of(context).pop(false),
-              child:const Text('No'),
+      return await showDialog(
+            //show confirm dialogue
+            //the return value will be from "Yes" or "No" options
+            context: context,
+            builder: (context) => AlertDialog(
+              title: const Text('Exit App'),
+              content: const Text(
+                'Do you want to close Studygram ?',
+                style: TextStyle(fontWeight: FontWeight.w600),
+              ),
+              actions: [
+                ElevatedButton(
+                  onPressed: () => Navigator.of(context).pop(false),
+                  child: const Text('No'),
+                ),
+                ElevatedButton(
+                  onPressed: () => Navigator.of(context).pop(true),
+                  //return true when click on "Yes"
+                  child: const Text('Yes'),
+                ),
+              ],
             ),
-
-            ElevatedButton(
-              onPressed: () => Navigator.of(context).pop(true), 
-              //return true when click on "Yes"
-              child:const Text('Yes'),
-            ),
-          ],
-        ),
-      )??false; //if showDialouge had returned null, then return false
+          ) ??
+          false; //if showDialouge had returned null, then return false
     }
 
-    return WillPopScope( 
-      onWillPop: showExitPopup,
-      child:Scaffold( 
-        body: MainPage(),
-      )
-    );
+    return WillPopScope(
+        onWillPop: showExitPopup,
+        child: Scaffold(
+          body: MainPage(),
+        ));
   }
 }
 

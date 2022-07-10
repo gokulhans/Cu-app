@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:note_app/sidebar.dart';
 
 class Noti extends StatelessWidget {
   const Noti({Key? key}) : super(key: key);
@@ -7,6 +8,7 @@ class Noti extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: NavDrawer(),
       appBar: AppBar(
         title: const Text('All Notifications'),
         systemOverlayStyle: const SystemUiOverlayStyle(

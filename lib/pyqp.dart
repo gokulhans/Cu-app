@@ -3,6 +3,7 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:note_app/methods/fetchdata.dart';
+import 'package:note_app/sidebar.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Pyqp extends StatelessWidget {
@@ -11,6 +12,7 @@ class Pyqp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: NavDrawer(),
       appBar: AppBar(
         title: const Text('Previous year question paper'),
       ),

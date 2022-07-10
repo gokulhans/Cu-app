@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:note_app/sidebar.dart';
 import 'package:note_app/subject.dart';
 
 class Semester extends StatelessWidget {
@@ -8,6 +9,7 @@ final String title;
   @override
   Widget build(BuildContext context) {
     return Scaffold( 
+      drawer: NavDrawer(),
       appBar: AppBar(
         title: const Text('Select Semester'),
         systemOverlayStyle: const SystemUiOverlayStyle(

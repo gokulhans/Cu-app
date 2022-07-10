@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:note_app/methods/fetchData.dart';
-import 'package:note_app/module.dart';
+import 'package:note_app/sidebar.dart';
 import 'package:note_app/type.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
@@ -12,6 +12,7 @@ class Subject extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: NavDrawer(),
       appBar: AppBar(
         title: const Text('Select Subject'),
         systemOverlayStyle: const SystemUiOverlayStyle(
