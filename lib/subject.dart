@@ -85,7 +85,7 @@ class _SublistState extends State<Sublist> {
                                         snapshot.data[i].name,
                                         style: const TextStyle(
                                             color: Colors.white,
-                                            fontWeight: FontWeight.w900,
+                                            fontWeight: FontWeight.w600,
                                             fontSize: 18),
                                       ),
                                       onPressed: () {

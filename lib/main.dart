@@ -1,7 +1,9 @@
 import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+// import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:note_app/aboutus.dart';
+// import 'package:note_app/admobhelper.dart';
 import 'package:note_app/copyright.dart';
 import 'package:note_app/home.dart';
 import 'package:note_app/courses.dart';
@@ -15,8 +17,9 @@ import 'package:note_app/type.dart';
 import 'package:note_app/file.dart';
 import 'package:note_app/noti.dart';
 
-
 void main() {
+  // WidgetsFlutterBinding.ensureInitialized();
+  // AdmobHelper.initialize();
   runApp(const MyApp());
 }
 
@@ -116,29 +119,6 @@ class Exithome extends StatelessWidget {
   }
 }
 
-// class SplashPage extends StatefulWidget {
-//   @override
-//   _SplashPageState createState() => _SplashPageState();
-// }
-
-// class _SplashPageState extends State<SplashPage> {
-//   @override
-//   void initState() {
-//     super.initState();
-//     Timer(
-//         Duration(seconds: 3),
-//         () => Navigator.pushReplacement(
-//             context, MaterialPageRoute(builder: (context) => MainPage())));
-//   }
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container(
-//         color: Colors.white,
-//         child: FlutterLogo(size: MediaQuery.of(context).size.height));
-//   }
-// }
-
 class MainPage extends StatefulWidget {
   MainPage({Key? key}) : super(key: key);
 
@@ -170,6 +150,22 @@ class _MainPageState extends State<MainPage> {
               color: Colors.black, fontSize: 20, fontWeight: FontWeight.w800),
         ),
         actions: [
+          // IconButton(
+          //   padding: EdgeInsets.symmetric(horizontal: 24),
+          //   icon: Badge(
+          //     // ignore: prefer_const_constructors
+          //     child: Icon(
+          //       Icons.notifications,
+          //       color: Colors.teal,
+          //     ),
+          //     showBadge: true,
+          //     badgeContent: Text(""),
+          //   ),
+          //   onPressed: () {
+          //     AdmobHelper()
+          //         .createInterad();
+          //   },
+          // ),
           IconButton(
             padding: EdgeInsets.symmetric(horizontal: 24),
             icon: Badge(
@@ -182,6 +178,8 @@ class _MainPageState extends State<MainPage> {
               badgeContent: Text(""),
             ),
             onPressed: () {
+              // print("test");
+              // AdmobHelper().showInterad();
               // Navigator.of(context).pushNamed('noti');
             },
           )

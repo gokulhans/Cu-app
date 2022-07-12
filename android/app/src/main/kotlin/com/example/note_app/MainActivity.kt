@@ -1,4 +1,4 @@
-package com.example.note_app
+package com.gbroz.studygram
 
 import io.flutter.embedding.android.FlutterActivity
 

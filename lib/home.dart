@@ -324,35 +324,35 @@ class _MainPageState extends State<MainPage> {
                               fontSize: 20),
                         )),
                   ),
-                  Center(
-                    child: Container(
-                      margin: const EdgeInsets.all(10.0),
-                      padding: EdgeInsets.all(10.0),
-                      child: ClipRect(
-                        child: Container(
-                          color: Colors.green[100],
-                          height: 200,
-                          child: Padding(
-                            padding: const EdgeInsets.fromLTRB(10, 20, 10, 20),
-                            child: Column(
-                              children: <Widget>[
-                                Image.network(
-                                    'https://media.geeksforgeeks.org/wp-content/cdn-uploads/20190806131525/forkPython.jpg'),
-                                const SizedBox(height: 10),
-                                const Text(
-                                  'Studygram',
-                                  style: TextStyle(
-                                      color: Colors.green,
-                                      fontSize: 40,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
+                  // Center(
+                  //   child: Container(
+                  //     margin: const EdgeInsets.all(10.0),
+                  //     padding: EdgeInsets.all(10.0),
+                  //     child: ClipRect(
+                  //       child: Container(
+                  //         color: Colors.green[100],
+                  //         height: 200,
+                  //         child: Padding(
+                  //           padding: const EdgeInsets.fromLTRB(10, 20, 10, 20),
+                  //           child: Column(
+                  //             children: <Widget>[
+                  //               Image.network(
+                  //                   'https://media.geeksforgeeks.org/wp-content/cdn-uploads/20190806131525/forkPython.jpg'),
+                  //               const SizedBox(height: 10),
+                  //               const Text(
+                  //                 'Studygram',
+                  //                 style: TextStyle(
+                  //                     color: Colors.green,
+                  //                     fontSize: 40,
+                  //                     fontWeight: FontWeight.bold),
+                  //               ),
+                  //             ],
+                  //           ),
+                  //         ),
+                  //       ),
+                  //     ),
+                  //   ),
+                  // ),
                   SizedBox(
                     height: 4,
                   )
