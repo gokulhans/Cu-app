@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 // import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:note_app/aboutus.dart';
+import 'package:note_app/admobhelper.dart';
 // import 'package:note_app/admobhelper.dart';
 import 'package:note_app/copyright.dart';
 import 'package:note_app/home.dart';
@@ -18,14 +19,19 @@ import 'package:note_app/file.dart';
 import 'package:note_app/noti.dart';
 
 void main() {
-  // WidgetsFlutterBinding.ensureInitialized();
-  // AdmobHelper.initialize();
+  WidgetsFlutterBinding.ensureInitialized();
+  AdmobHelper.initialize();
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
 
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -129,6 +135,8 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   int currentIndex = 0;
   final screens = [Home(), Courses(), Syllabus(), Profile()];
+  AdmobHelper admobHelper = new AdmobHelper();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -178,11 +186,13 @@ class _MainPageState extends State<MainPage> {
               badgeContent: Text(""),
             ),
             onPressed: () {
+              admobHelper.createInterad();
+              admobHelper.showInterad();
               // print("test");
               // AdmobHelper().showInterad();
               // Navigator.of(context).pushNamed('noti');
             },
-          )
+          ),
         ],
         iconTheme: IconThemeData(color: Colors.green),
       ),

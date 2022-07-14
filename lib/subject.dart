@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:note_app/admobhelper.dart';
 import 'package:note_app/methods/fetchData.dart';
 import 'package:note_app/sidebar.dart';
 import 'package:note_app/type.dart';

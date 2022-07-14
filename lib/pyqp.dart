@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
+import 'package:note_app/admobhelper.dart';
 import 'package:note_app/methods/fetchdata.dart';
 import 'package:note_app/sidebar.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -24,8 +25,10 @@ class Pyqp extends StatelessWidget {
 }
 
 class Pyqpscreen extends StatelessWidget {
-  const Pyqpscreen({Key? key, required this.title}) : super(key: key);
+ Pyqpscreen({Key? key, required this.title}) : super(key: key);
   final String title;
+  AdmobHelper admobHelper = new AdmobHelper();
+  
 
   @override
   Widget build(BuildContext context) {
@@ -47,6 +50,8 @@ class Pyqpscreen extends StatelessWidget {
                 itemBuilder: (context, i) {
                   return TextButton(
                     onPressed: () async {
+                  admobHelper.createInterad();
+
                       var url = snapshot.data[i].link;
                       if (await canLaunchUrl(Uri.parse(url))) {
                         await launchUrl(Uri.parse(url),

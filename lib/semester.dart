@@ -2,13 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:note_app/sidebar.dart';
 import 'package:note_app/subject.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:note_app/admobhelper.dart';
 
 class Semester extends StatelessWidget {
-   Semester({Key? key,required this.title}) : super(key: key);
-final String title;
+  Semester({Key? key, required this.title}) : super(key: key);
+  final String title;
   @override
   Widget build(BuildContext context) {
-    return Scaffold( 
+    return Scaffold(
       drawer: NavDrawer(),
       appBar: AppBar(
         title: const Text('Select Semester'),
@@ -19,20 +21,28 @@ final String title;
           statusBarIconBrightness: Brightness.dark, // For Android (dark icons)
         ),
       ),
-      body:  Semlist(title: title,),
+      body: Semlist(
+        title: title,
+      ),
     );
   }
 }
 
 class Semlist extends StatelessWidget {
-   Semlist({Key? key,required this.title}) : super(key: key);
+  Semlist({Key? key, required this.title}) : super(key: key);
   final String title;
-
 
   @override
   Widget build(BuildContext context) {
-  List<String> semesters = ['Semester-1','Semester-2','Semester-3','Semester-4','Semester-5','Semester-6'];
-  List<String> semname = ['S 1','S 2','S 3','S 4','S 5','S 6'];
+    List<String> semesters = [
+      'Semester-1',
+      'Semester-2',
+      'Semester-3',
+      'Semester-4',
+      'Semester-5',
+      'Semester-6'
+    ];
+    List<String> semname = ['S 1', 'S 2', 'S 3', 'S 4', 'S 5', 'S 6'];
     return Center(
         child: GridView.builder(
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -77,7 +87,7 @@ class Semlist extends StatelessWidget {
               context,
               MaterialPageRoute(
                   builder: (context) => Subject(
-                        title: title+'/'+semesters[index]+'/',
+                        title: title + '/' + semesters[index] + '/',
                       )),
             );
           },

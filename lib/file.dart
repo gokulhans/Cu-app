@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
+import 'package:note_app/admobhelper.dart';
 import 'package:note_app/methods/fetchdata.dart';
 import 'package:note_app/sidebar.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -25,8 +26,9 @@ class File extends StatelessWidget {
 }
 
 class Videoscreen extends StatelessWidget {
-  const Videoscreen({Key? key, required this.title}) : super(key: key);
+  Videoscreen({Key? key, required this.title}) : super(key: key);
   final String title;
+  AdmobHelper admobHelper = new AdmobHelper();
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +46,9 @@ class Videoscreen extends StatelessWidget {
             if (snapshot.data.length == 0) {
               return const Center(
                   child: Text(
-                      'This Page is Empty',style: TextStyle(fontWeight: FontWeight.w800),));
+                'This Page is Empty',
+                style: TextStyle(fontWeight: FontWeight.w800),
+              ));
             } else {
               return ListView.builder(
                   scrollDirection: Axis.vertical,
@@ -53,6 +57,8 @@ class Videoscreen extends StatelessWidget {
                   itemBuilder: (context, i) {
                     return TextButton(
                       onPressed: () async {
+                        admobHelper.createInterVideoad();
+
                         var url = 'https://youtu.be/' + snapshot.data[i].link;
                         if (await canLaunchUrl(Uri.parse(url))) {
                           await launchUrl(Uri.parse(url),
