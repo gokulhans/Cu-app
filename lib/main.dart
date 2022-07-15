@@ -19,6 +19,7 @@ import 'package:note_app/syllabus.dart';
 import 'package:note_app/type.dart';
 import 'package:note_app/file.dart';
 import 'package:note_app/noti.dart';
+import 'package:note_app/updatehome.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -92,7 +93,7 @@ class _MyAppState extends State<MyApp> {
         },
       },
       debugShowCheckedModeBanner: false,
-      home: Exithome(),
+      home: UpdateHome(),
     );
   }
 }
