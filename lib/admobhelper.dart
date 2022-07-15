@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 class AdmobHelper {
@@ -71,7 +70,7 @@ class AdmobHelper {
   void createInterad() {
     InterstitialAd.load(
       // adUnitId: 'ca-app-pub-3940256099942544/8691691433',
-      adUnitId: 'ca-app-pub-3940256099942544/1033173712',
+      adUnitId: 'ca-app-pub-9660935149220558/4113904557',
       request: AdRequest(),
       adLoadCallback:
           InterstitialAdLoadCallback(onAdLoaded: (InterstitialAd ad) {
@@ -111,7 +110,7 @@ class AdmobHelper {
 
   void createInterVideoad() {
     InterstitialAd.load(
-      adUnitId: 'ca-app-pub-3940256099942544/8691691433',
+      adUnitId: 'ca-app-pub-9660935149220558/7541808780',
       // adUnitId: 'ca-app-pub-3940256099942544/1033173712',
       request: AdRequest(),
       adLoadCallback:

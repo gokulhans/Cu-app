@@ -17,3 +17,11 @@ class Pdfs {
   final String _id, name, item,link,user;
   Pdfs(this._id, this.name, this.item,this.link,this.user);
 }
+class Noti {
+  final String _id, name, content,link;
+  Noti(this._id, this.name, this.content,this.link);
+}
+class Syllabus {
+  final String _id,course,link;
+  Syllabus(this._id,this.course,this.link);
+}

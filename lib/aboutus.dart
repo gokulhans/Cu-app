@@ -39,7 +39,7 @@ class ListViewBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<String> appdata = ['App Name','App Version','Developed by'];
-    List<String> devdata = ['Studygram','V 1.0.0','gbrozdev'];
+    List<String> devdata = ['Studygram','V 1.0.0','gbroz'];
     
     return Scaffold(
       body: Container(
@@ -52,9 +52,9 @@ class ListViewBuilder extends StatelessWidget {
                 contentPadding: const EdgeInsets.only(left: 50,right: 50),
                   trailing: Text(
                      devdata[i],
-                    style: const TextStyle(color: Colors.green, fontSize: 18,fontWeight: FontWeight.w800),
+                    style: const TextStyle(color: Colors.green, fontSize: 15,fontWeight: FontWeight.w800),
                   ),
-                  title: Text(appdata[i],style: const TextStyle(fontSize: 18,fontWeight: FontWeight.w800)));
+                  title: Text(appdata[i],style: const TextStyle(fontSize: 15,fontWeight: FontWeight.w800)));
             }),
       ),
     );

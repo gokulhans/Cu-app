@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:note_app/methods/fetchdata.dart';
 import 'package:note_app/sidebar.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Noti extends StatelessWidget {
   const Noti({Key? key}) : super(key: key);
@@ -10,7 +13,7 @@ class Noti extends StatelessWidget {
     return Scaffold(
       drawer: NavDrawer(),
       appBar: AppBar(
-        title: const Text('All Notifications'),
+        title: const Text('University Notifications'),
         systemOverlayStyle: const SystemUiOverlayStyle(
           // Status bar color
           statusBarColor: Colors.green,
@@ -18,57 +21,92 @@ class Noti extends StatelessWidget {
           statusBarIconBrightness: Brightness.dark, // For Android (dark icons)
         ),
       ),
-      body: const Semlist(),
+      body: const Syllabuslist(),
     );
   }
 }
 
-class Semlist extends StatelessWidget {
-  const Semlist({Key? key}) : super(key: key);
+
+class Syllabuslist extends StatefulWidget {
+  const Syllabuslist({
+    Key? key,
+  }) : super(key: key);
 
   @override
+  _SyllabuslistState createState() => _SyllabuslistState();
+}
+
+class _SyllabuslistState extends State<Syllabuslist> {
+  // var endpoint = widget.title;
+  // var endpoint = 'Bca/Semester-1';
+  @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.only(
-        left: 24,
-        right: 24,
-        top: 24,
-      ),
-      child: ListView.separated(
-        shrinkWrap: true,
-        itemBuilder: (context, index) {
-          return Container(
-            height: 100,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(12),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black.withOpacity(0.05),
-                )
-              ],
-              // color: Colors.blue,
-            ),
-            child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-              child: TextButton(
-                  child: const Text(
-                    "This is a sample notification from admin This is a sample notification from admin This is a sample notification from admin",
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.w900,
-                        fontSize: 15),
-                  ),
-                  onPressed: () {
-                    Navigator.of(context).pushNamed('');
-                  }),
-            ),
-          );
-        },
-        itemCount: 6,
-        separatorBuilder: (context, index) {
-          return const Divider();
-        },
-      ),
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: FutureBuilder(
+          future: getNoti(),
+          builder: (context, AsyncSnapshot snapshot) {
+            if (snapshot.data == null) {
+              return const Center(
+                child: SpinKitCircle(
+                  size: 80,
+                  color: Colors.blue,
+                ),
+              );
+            } else {
+              return Container(
+                padding: const EdgeInsets.only(
+                  left: 12,
+                  right: 12,
+                  top: 16,
+                ),
+                child: ListView.builder(
+                    itemCount: snapshot.data.length,
+                    itemBuilder: (context, i) {
+                      return Container(
+                        height: 60,
+                        margin: const EdgeInsets.only(
+                          left: 12,
+                          right: 12,
+                          top: 6,
+                          bottom: 6,
+                        ),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(12),
+                          boxShadow: [
+                            BoxShadow(
+                                color: Colors.black.withOpacity(0.05),
+                                blurRadius: 3,
+                                spreadRadius: 4)
+                          ],
+                          color: Colors.blue,
+                        ),
+                        child: Center(
+                          child: TextButton(
+                              child: Text(
+                                snapshot.data[i].link,
+                                style: const TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 18),
+                              ),
+                              onPressed: () async{
+                                 var url = snapshot.data[i].link;
+                        if (await canLaunchUrl(Uri.parse(url))) {
+                          await launchUrl(Uri.parse(url),
+                              mode: LaunchMode.externalApplication);
+                          //  await launch(url,
+                          //   forceWebView: false, enableJavaScript: true);
+                        } else {
+                          throw 'Could not launch $url';
+                        }
+                              }),
+                        ),
+                      );
+                    }),
+              );
+            }
+          }),
     );
   }
 }

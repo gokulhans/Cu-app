@@ -76,3 +76,39 @@ Future getPyqs(var endpoint) async {
 
   return pyqs;
 }
+
+Future getSyllabus() async {
+  var link = 'syllabus';
+
+  var response = await http.get(Uri.https('studygramcu.herokuapp.com', link));
+  var jsonData = jsonDecode(response.body);
+
+  List<Syllabus> syllabuss = [];
+
+  for (var u in jsonData) {
+    Syllabus syllabus =
+        Syllabus(u["_id"], u["course"], u["link"]);
+    syllabuss.add(syllabus);
+  }
+
+
+  return syllabuss;
+}
+
+Future getNoti() async {
+  var link = 'noti';
+
+  var response = await http.get(Uri.https('studygramcu.herokuapp.com', link));
+  var jsonData = jsonDecode(response.body);
+
+  List<Noti> notis = [];
+
+  for (var u in jsonData) {
+    Noti noti =
+        Noti(u["_id"], u["name"],u["content"], u["link"]);
+    notis.add(noti);
+  }
+
+
+  return notis;
+}

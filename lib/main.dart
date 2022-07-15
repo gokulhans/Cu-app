@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -8,11 +10,11 @@ import 'package:note_app/admobhelper.dart';
 import 'package:note_app/copyright.dart';
 import 'package:note_app/home.dart';
 import 'package:note_app/courses.dart';
-import 'package:note_app/profile.dart';
 import 'package:note_app/sidebar.dart';
 import 'package:note_app/semester.dart';
 import 'package:note_app/subject.dart';
 import 'package:note_app/module.dart';
+import 'package:note_app/supportus.dart';
 import 'package:note_app/syllabus.dart';
 import 'package:note_app/type.dart';
 import 'package:note_app/file.dart';
@@ -21,6 +23,11 @@ import 'package:note_app/noti.dart';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   AdmobHelper.initialize();
+  // AdmobHelper admobHelper = new AdmobHelper();
+  // Timer.periodic(Duration(seconds: 600), (timer) {
+  //   admobHelper.createInterad();
+  // });
+
   runApp(const MyApp());
 }
 
@@ -80,6 +87,9 @@ class _MyAppState extends State<MyApp> {
         'home': (ctx) {
           return MainPage();
         },
+        'support': (ctx) {
+          return Supportus();
+        },
       },
       debugShowCheckedModeBanner: false,
       home: Exithome(),
@@ -134,7 +144,7 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   int currentIndex = 0;
-  final screens = [Home(), Courses(), Syllabus(), Profile()];
+  final screens = [Home(), Courses(), Syllabus(), Supportus()];
   AdmobHelper admobHelper = new AdmobHelper();
 
   @override
@@ -158,25 +168,9 @@ class _MainPageState extends State<MainPage> {
               color: Colors.black, fontSize: 20, fontWeight: FontWeight.w800),
         ),
         actions: [
-          // IconButton(
-          //   padding: EdgeInsets.symmetric(horizontal: 24),
-          //   icon: Badge(
-          //     // ignore: prefer_const_constructors
-          //     child: Icon(
-          //       Icons.notifications,
-          //       color: Colors.teal,
-          //     ),
-          //     showBadge: true,
-          //     badgeContent: Text(""),
-          //   ),
-          //   onPressed: () {
-          //     AdmobHelper()
-          //         .createInterad();
-          //   },
-          // ),
           IconButton(
             padding: EdgeInsets.symmetric(horizontal: 24),
-            icon: Badge(
+             icon: Badge(
               // ignore: prefer_const_constructors
               child: Icon(
                 Icons.notifications,
@@ -186,11 +180,11 @@ class _MainPageState extends State<MainPage> {
               badgeContent: Text(""),
             ),
             onPressed: () {
-              admobHelper.createInterad();
-              admobHelper.showInterad();
+              // admobHelper.createInterad();
+              // admobHelper.showInterad();
               // print("test");
               // AdmobHelper().showInterad();
-              // Navigator.of(context).pushNamed('noti');
+              Navigator.of(context).pushNamed('noti');
             },
           ),
         ],
@@ -198,6 +192,7 @@ class _MainPageState extends State<MainPage> {
       ),
       body: screens[currentIndex],
       bottomNavigationBar: BottomNavigationBar(
+          backgroundColor: Colors.white,
           currentIndex: currentIndex,
           onTap: (index) => setState(() => currentIndex = index),
           unselectedLabelStyle: const TextStyle(
@@ -223,7 +218,12 @@ class _MainPageState extends State<MainPage> {
             BottomNavigationBarItem(
                 icon: Icon(Icons.graphic_eq_outlined), label: 'Syllabus'),
             BottomNavigationBarItem(
-                icon: Icon(Icons.account_circle), label: 'Profile'),
+              icon: Icon(
+                Icons.favorite,
+                color: Colors.red,
+              ),
+              label: 'Support Us',
+            ),
           ]),
     );
   }

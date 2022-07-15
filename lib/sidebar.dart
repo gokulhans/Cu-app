@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:share_plus/share_plus.dart';
 
 class NavDrawer extends StatelessWidget {
   @override
@@ -25,16 +26,16 @@ class NavDrawer extends StatelessWidget {
           ),
           ListTile(
             leading: Icon(Icons.input),
-            title: Text('Home'),
+            title: Text('Welcome'),
             onTap: () {
-                    Navigator.of(context).popAndPushNamed('home');
+              Navigator.of(context).pop();
             },
           ),
           ListTile(
             leading: Icon(Icons.telegram),
             title: Text('Telegram'),
             onTap: () async {
-              var url = "https://codesinsider.com";
+              var url = "https://t.me/studygramcu";
               if (await canLaunchUrl(Uri.parse(url))) {
                 await launchUrl(Uri.parse(url),
                     mode: LaunchMode.externalNonBrowserApplication);
@@ -47,7 +48,7 @@ class NavDrawer extends StatelessWidget {
             leading: Icon(Icons.whatsapp),
             title: Text('Whatsapp'),
             onTap: () async {
-              var url = "https://codesinsider.com";
+              var url = "https://wa.me/message/5XWWJKY6UH5EG1";
               if (await canLaunchUrl(Uri.parse(url))) {
                 await launchUrl(Uri.parse(url),
                     mode: LaunchMode.externalNonBrowserApplication);
@@ -60,7 +61,7 @@ class NavDrawer extends StatelessWidget {
             leading: Icon(FontAwesomeIcons.instagram),
             title: Text('Instagram'),
             onTap: () async {
-              var url = "https://codesinsider.com";
+              var url = "https://instagram.com/studygramcu?igshid=YmMyMTA2M2Y=";
               if (await canLaunchUrl(Uri.parse(url))) {
                 await launchUrl(Uri.parse(url),
                     mode: LaunchMode.externalNonBrowserApplication);
@@ -75,9 +76,25 @@ class NavDrawer extends StatelessWidget {
             onTap: () => {Navigator.of(context).pushNamed('copyright')},
           ),
           ListTile(
+            leading: Icon(Icons.favorite,color: Colors.red,),
+            title: Text('Support Us',style: TextStyle(color: Colors.red,fontWeight: FontWeight.w900),),
+            onTap: () => {Navigator.of(context).pushNamed('support')},
+          ),
+          ListTile(
             leading: Icon(Icons.info),
             title: Text('About Us'),
             onTap: () => {Navigator.of(context).pushNamed('about')},
+          ),
+          ListTile(
+            leading: Icon(Icons.share),
+            title: Text('Share App'),
+            onTap: () async {
+              const message =
+                  "Studygram is a place for calicut university students. Previous Year Question Papers ,Studymaterials,Video Classes are Available";
+              const appurl =
+                  "https://play.google.com/store/apps/details?id=com.gbroz.studygram";
+              await Share.share("$message \n $appurl");
+            },
           ),
         ],
       ),

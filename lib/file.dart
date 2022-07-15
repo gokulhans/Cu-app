@@ -57,7 +57,7 @@ class Videoscreen extends StatelessWidget {
                   itemBuilder: (context, i) {
                     return TextButton(
                       onPressed: () async {
-                        admobHelper.createInterVideoad();
+                        admobHelper.createInterad();
 
                         var url = 'https://youtu.be/' + snapshot.data[i].link;
                         if (await canLaunchUrl(Uri.parse(url))) {
