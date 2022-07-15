@@ -17,7 +17,7 @@ class _UpdateHomeState extends State<UpdateHome> {
   void initState() {
 
     final newVersion = NewVersion(
-      androidId: 'org.telegram.messenger',
+      androidId: 'com.gbroz.studygram',
     );
 
     Timer(const Duration(milliseconds: 800), () {
