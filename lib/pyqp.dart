@@ -25,10 +25,9 @@ class Pyqp extends StatelessWidget {
 }
 
 class Pyqpscreen extends StatelessWidget {
- Pyqpscreen({Key? key, required this.title}) : super(key: key);
+  Pyqpscreen({Key? key, required this.title}) : super(key: key);
   final String title;
   AdmobHelper admobHelper = new AdmobHelper();
-  
 
   @override
   Widget build(BuildContext context) {
@@ -43,32 +42,40 @@ class Pyqpscreen extends StatelessWidget {
               ),
             );
           } else {
-            return ListView.builder(
-                scrollDirection: Axis.vertical,
-                shrinkWrap: true,
-                itemCount: snapshot.data.length,
-                itemBuilder: (context, i) {
-                  return TextButton(
-                    onPressed: () async {
-                  admobHelper.createInterad();
+            if (snapshot.data.length == 0) {
+              return const Center(
+                  child: Text(
+                'This Page is Empty',
+                style: TextStyle(fontWeight: FontWeight.w800),
+              ));
+            } else {
+              return ListView.builder(
+                  scrollDirection: Axis.vertical,
+                  shrinkWrap: true,
+                  itemCount: snapshot.data.length,
+                  itemBuilder: (context, i) {
+                    return TextButton(
+                      onPressed: () async {
+                        admobHelper.createInterad();
 
-                      var url = snapshot.data[i].link;
-                      if (await canLaunchUrl(Uri.parse(url))) {
-                        await launchUrl(Uri.parse(url),
-                            mode: LaunchMode.externalApplication);
-                        //  await launch(url,
-                        //   forceWebView: false, enableJavaScript: true);
-                      } else {
-                        throw 'Could not launch $url';
-                      }
-                    },
-                    child: Text(
-                      snapshot.data[i].name,
-                      style:
-                          TextStyle(fontWeight: FontWeight.w800, fontSize: 16),
-                    ),
-                  );
-                });
+                        var url = snapshot.data[i].link;
+                        if (await canLaunchUrl(Uri.parse(url))) {
+                          await launchUrl(Uri.parse(url),
+                              mode: LaunchMode.externalApplication);
+                          //  await launch(url,
+                          //   forceWebView: false, enableJavaScript: true);
+                        } else {
+                          throw 'Could not launch $url';
+                        }
+                      },
+                      child: Text(
+                        snapshot.data[i].name,
+                        style: TextStyle(
+                            fontWeight: FontWeight.w800, fontSize: 16),
+                      ),
+                    );
+                  });
+            }
           }
         });
   }

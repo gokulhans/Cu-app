@@ -38,9 +38,9 @@ Future getVideos(var endpoint) async {
     videos.add(video);
   }
 
-
   return videos;
 }
+
 Future getPdfs(var endpoint) async {
   var link = endpoint + 'Study-Materials';
 
@@ -50,11 +50,9 @@ Future getPdfs(var endpoint) async {
   List<Pdfs> pdfs = [];
 
   for (var u in jsonData) {
-    Pdfs pdf =
-        Pdfs(u["_id"], u["name"], u["link"], u["item"], u["user"]);
+    Pdfs pdf = Pdfs(u["_id"], u["name"], u["link"], u["item"], u["user"]);
     pdfs.add(pdf);
   }
-
 
   return pdfs;
 }
@@ -68,11 +66,9 @@ Future getPyqs(var endpoint) async {
   List<Pyqs> pyqs = [];
 
   for (var u in jsonData) {
-    Pyqs pyq =
-        Pyqs(u["_id"], u["name"], u["link"],u["item"], u["user"]);
+    Pyqs pyq = Pyqs(u["_id"], u["name"], u["link"], u["item"], u["user"]);
     pyqs.add(pyq);
   }
-
 
   return pyqs;
 }
@@ -86,11 +82,9 @@ Future getSyllabus() async {
   List<Syllabus> syllabuss = [];
 
   for (var u in jsonData) {
-    Syllabus syllabus =
-        Syllabus(u["_id"], u["course"], u["link"]);
+    Syllabus syllabus = Syllabus(u["_id"], u["course"], u["link"]);
     syllabuss.add(syllabus);
   }
-
 
   return syllabuss;
 }
@@ -104,11 +98,24 @@ Future getNoti() async {
   List<Noti> notis = [];
 
   for (var u in jsonData) {
-    Noti noti =
-        Noti(u["_id"], u["name"],u["content"], u["link"]);
+    Noti noti = Noti(u["_id"], u["name"], u["content"], u["link"]);
     notis.add(noti);
   }
 
-
   return notis;
+}
+
+Future getAds() async {
+  var response =
+      await http.get(Uri.https('studygramcu.herokuapp.com', 'ads-status'));
+  var jsonData = jsonDecode(response.body);
+
+  List<Ads> ads = [];
+
+  for (var u in jsonData) {
+    Ads ad = Ads(u["_id"], u["inter"], u["video"], u["banner"], u["all"]);
+    ads.add(ad);
+  }
+  var a = await ads;
+  return ads;
 }

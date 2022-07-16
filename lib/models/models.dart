@@ -25,3 +25,11 @@ class Syllabus {
   final String _id,course,link;
   Syllabus(this._id,this.course,this.link);
 }
+
+class Ads {
+      String id, inter, video,banner,all;
+    Ads(
+        this.id,
+        this.inter,
+        this.video,this.banner,this.all);
+}

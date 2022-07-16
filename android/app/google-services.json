@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "124642772982",
-    "project_id": "studygram-14973",
-    "storage_bucket": "studygram-14973.appspot.com"
+    "project_number": "779240220888",
+    "project_id": "studygramcu",
+    "storage_bucket": "studygramcu.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:124642772982:android:5a399749ffb11d1b44e9d7",
+        "mobilesdk_app_id": "1:779240220888:android:1e7a7a0f82794091fe8fad",
         "android_client_info": {
           "package_name": "com.gbroz.studygram"
         }
       },
       "oauth_client": [
         {
-          "client_id": "124642772982-u62us2agmtqcjlcuq5goi1hkph24dko2.apps.googleusercontent.com",
+          "client_id": "779240220888-j969ac5pa1lttohrptpvrps1tkoadn13.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCJ8XvGaX1V_j0_4qWuIw1XCPrqPwt47-c"
+          "current_key": "AIzaSyA7eQ0zq7g1K0Xo9h75mzqdp0-g3dnHLGo"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "124642772982-u62us2agmtqcjlcuq5goi1hkph24dko2.apps.googleusercontent.com",
+              "client_id": "779240220888-j969ac5pa1lttohrptpvrps1tkoadn13.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

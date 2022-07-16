@@ -247,7 +247,7 @@ class _MainPageState extends State<MainPage> {
                             SizedBox(
                               height: 10,
                             ),
-                            Text("BSc Psychology")
+                            Text("Psychology")
                           ],
                         ),
                       ),

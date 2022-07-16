@@ -49,7 +49,7 @@ class Semlist extends StatelessWidget {
         crossAxisCount: 3,
       ),
       primary: false,
-      padding: const EdgeInsets.all(20),
+      padding: const EdgeInsets.all(10),
       itemCount: semesters.length,
       itemBuilder: (context, int index) {
         return TextButton(

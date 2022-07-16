@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -10,6 +9,7 @@ import 'package:note_app/admobhelper.dart';
 import 'package:note_app/copyright.dart';
 import 'package:note_app/home.dart';
 import 'package:note_app/courses.dart';
+import 'package:note_app/methods/fetchdata.dart';
 import 'package:note_app/sidebar.dart';
 import 'package:note_app/semester.dart';
 import 'package:note_app/subject.dart';
@@ -20,6 +20,25 @@ import 'package:note_app/type.dart';
 import 'package:note_app/file.dart';
 import 'package:note_app/noti.dart';
 import 'package:note_app/updatehome.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:google_fonts/google_fonts.dart';
+
+const AndroidNotificationChannel channel = AndroidNotificationChannel(
+    'high_importance_channel', // id
+    'High Importance Notifications', // title
+    'This channel is used for important notifications.', // description
+    importance: Importance.high,
+    playSound: true);
+
+final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
+    FlutterLocalNotificationsPlugin();
+
+Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
+  await Firebase.initializeApp();
+  print('A bg message just showed up :  ${message.messageId}');
+}
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -28,7 +47,7 @@ void main() {
   // Timer.periodic(Duration(seconds: 600), (timer) {
   //   admobHelper.createInterad();
   // });
-
+  // getAds();
   runApp(const MyApp());
 }
 
@@ -45,6 +64,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       theme: ThemeData(
         primarySwatch: Colors.green,
+        fontFamily: GoogleFonts.poppins().fontFamily,
         textTheme: const TextTheme(
           headline1: TextStyle(color: Colors.deepPurpleAccent),
           headline2: TextStyle(color: Colors.deepPurpleAccent),
@@ -97,6 +117,7 @@ class _MyAppState extends State<MyApp> {
     );
   }
 }
+
 
 class Exithome extends StatelessWidget {
   @override
@@ -151,6 +172,7 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       drawer: NavDrawer(),
       appBar: AppBar(
         systemOverlayStyle: const SystemUiOverlayStyle(
@@ -171,7 +193,7 @@ class _MainPageState extends State<MainPage> {
         actions: [
           IconButton(
             padding: EdgeInsets.symmetric(horizontal: 24),
-             icon: Badge(
+            icon: Badge(
               // ignore: prefer_const_constructors
               child: Icon(
                 Icons.notifications,
