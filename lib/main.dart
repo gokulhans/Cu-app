@@ -24,6 +24,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:share_plus/share_plus.dart';
 import 'firebase_options.dart';
 
 Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
@@ -37,14 +38,10 @@ Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   AdmobHelper.initialize();
-  AdmobHelper admobHelper = new AdmobHelper();
-  Timer.periodic(Duration(seconds: 600), (timer) {
-    admobHelper.createInterad();
-  });
+  //
 
   // await getAds();
-  
-  
+
   // print(adstatus);
   // var adss = adstatus;
   // if (adss == 1) {
@@ -183,7 +180,7 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   int currentIndex = 0;
-  final screens = [Home(), Courses(), Syllabus(), Supportus()];
+  final screens = [Home(), Courses(), Syllabus(), Noti()];
   AdmobHelper admobHelper = new AdmobHelper();
 
   @override
@@ -209,26 +206,22 @@ class _MainPageState extends State<MainPage> {
         ),
         actions: [
           IconButton(
-            padding: EdgeInsets.symmetric(horizontal: 24),
-            icon: Badge(
-              // ignore: prefer_const_constructors
-              child: Icon(
-                Icons.notifications,
-                color: Colors.teal,
-              ),
-              showBadge: true,
-              badgeContent: Text(""),
+            padding: const EdgeInsets.symmetric(horizontal: 24),
+            icon: const Icon(
+              Icons.share,
+              color: Colors.teal,
             ),
-            onPressed: () {
-              // admobHelper.createInterad();
-              // admobHelper.showInterad();
-              // print("test");
-              // AdmobHelper().showInterad();
-              Navigator.of(context).pushNamed('noti');
+            onPressed: 
+              () async {
+                const message =
+                    "Studygram is a place for calicut university students. Previous Year Question Papers ,Studymaterials,Video Classes are Available";
+                const appurl =
+                    "https://play.google.com/store/apps/details?id=com.gbroz.studygram";
+                await Share.share("$message \n $appurl");
             },
           ),
         ],
-        iconTheme: IconThemeData(color: Colors.green),
+        iconTheme: const IconThemeData(color: Colors.green),
       ),
       body: screens[currentIndex],
       bottomNavigationBar: BottomNavigationBar(
@@ -259,10 +252,10 @@ class _MainPageState extends State<MainPage> {
                 icon: Icon(Icons.graphic_eq_outlined), label: 'Syllabus'),
             BottomNavigationBarItem(
               icon: Icon(
-                Icons.favorite,
-                color: Colors.red,
+                Icons.notifications,
+                // color: Colors.red,
               ),
-              label: 'Support Us',
+              label: 'Notis',
             ),
           ]),
     );

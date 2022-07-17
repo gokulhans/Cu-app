@@ -60,7 +60,7 @@ class _SupportuslistState extends State<Supportuslist> {
                       fontSize: 18),
                 ),
                 onPressed: () {
-                  admobHelper.createInterad();
+                  // admobHelper.createInterad();
                   Navigator.of(context).pushNamed('about');
                 }),
           ),

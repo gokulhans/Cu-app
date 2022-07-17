@@ -75,11 +75,11 @@ class NavDrawer extends StatelessWidget {
             title: Text('Copyright'),
             onTap: () => {Navigator.of(context).pushNamed('copyright')},
           ),
-          ListTile(
-            leading: Icon(Icons.favorite,color: Colors.red,),
-            title: Text('Support Us',style: TextStyle(color: Colors.red,fontWeight: FontWeight.w900),),
-            onTap: () => {Navigator.of(context).pushNamed('support')},
-          ),
+          // ListTile(
+          //   leading: Icon(Icons.favorite,color: Colors.red,),
+          //   title: Text('Support Us',style: TextStyle(color: Colors.red,fontWeight: FontWeight.w900),),
+          //   onTap: () => {Navigator.of(context).pushNamed('support')},
+          // ),
           ListTile(
             leading: Icon(Icons.info),
             title: Text('About Us'),

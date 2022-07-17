@@ -28,6 +28,7 @@ class File extends StatelessWidget {
 class Videoscreen extends StatelessWidget {
   Videoscreen({Key? key, required this.title}) : super(key: key);
   final String title;
+  var h = false;
   AdmobHelper admobHelper = new AdmobHelper();
 
   @override
@@ -58,15 +59,26 @@ class Videoscreen extends StatelessWidget {
                     return TextButton(
                       onPressed: () async {
                         // admobHelper.createInterad();
-
-                        var url = 'https://youtu.be/' + snapshot.data[i].link;
-                        if (await canLaunchUrl(Uri.parse(url))) {
-                          await launchUrl(Uri.parse(url),
-                              mode: LaunchMode.externalNonBrowserApplication);
-                          //  await launch(url,
-                          //   forceWebView: false, enableJavaScript: true);
+                        if (snapshot.data[i].link.contains("http")) {
+                          var url = snapshot.data[i].link;
+                          if (await canLaunchUrl(Uri.parse(url))) {
+                            await launchUrl(Uri.parse(url),
+                                mode: LaunchMode.externalNonBrowserApplication);
+                            //  await launch(url,
+                            //   forceWebView: false, enableJavaScript: true);
+                          } else {
+                            throw 'Could not launch $url';
+                          }
                         } else {
-                          throw 'Could not launch $url';
+                          var url = 'https://youtu.be/' + snapshot.data[i].link;
+                          if (await canLaunchUrl(Uri.parse(url))) {
+                            await launchUrl(Uri.parse(url),
+                                mode: LaunchMode.externalNonBrowserApplication);
+                            //  await launch(url,
+                            //   forceWebView: false, enableJavaScript: true);
+                          } else {
+                            throw 'Could not launch $url';
+                          }
                         }
                       },
                       child: FittedBox(

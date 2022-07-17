@@ -12,15 +12,7 @@ class Noti extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: NavDrawer(),
-      appBar: AppBar(
-        title: const Text('University Notifications'),
-        systemOverlayStyle: const SystemUiOverlayStyle(
-          // Status bar color
-          statusBarColor: Colors.green,
-          // Status bar brightness (optional)
-          statusBarIconBrightness: Brightness.dark, // For Android (dark icons)
-        ),
-      ),
+     
       body: const Syllabuslist(),
     );
   }

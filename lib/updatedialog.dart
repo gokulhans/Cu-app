@@ -25,6 +25,7 @@ class _UpdateDialogState extends State<UpdateDialog> {
   @override
   void dispose() {
     if(!widget.allowDismissal) {
+      // ignore: avoid_print
       print("EXIT APP");
       // SystemNavigator.pop(); this will close the app
     }
@@ -129,7 +130,7 @@ class _UpdateDialogState extends State<UpdateDialog> {
                           flex: 5,
                           child: SingleChildScrollView(
                             child: Text(
-                              widget.description,style: TextStyle(color: Colors.green),
+                              widget.description,style: const TextStyle(color: Colors.green),
                             ),
                           ),
                         ),
