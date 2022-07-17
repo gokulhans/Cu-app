@@ -47,7 +47,13 @@ void main() {
   // Timer.periodic(Duration(seconds: 600), (timer) {
   //   admobHelper.createInterad();
   // });
+
   // getAds();
+  // print(adstatus);
+  // var adss = adstatus;
+  // if (adss == 1) {
+  //   print("object");
+  // }
   runApp(const MyApp());
 }
 
@@ -117,7 +123,6 @@ class _MyAppState extends State<MyApp> {
     );
   }
 }
-
 
 class Exithome extends StatelessWidget {
   @override

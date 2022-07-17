@@ -104,12 +104,13 @@ Future getNoti() async {
 
   return notis;
 }
+  var adstatus = 0;
+
 
 Future getAds() async {
   var response =
       await http.get(Uri.https('studygramcu.herokuapp.com', 'ads-status'));
   var jsonData = jsonDecode(response.body);
-
   List<Ads> ads = [];
 
   for (var u in jsonData) {
@@ -117,5 +118,14 @@ Future getAds() async {
     ads.add(ad);
   }
   var a = await ads;
-  return ads;
+  print(ads);
+  if (ads == null) {
+  adstatus = 0;
+    print("null");
+  } else {
+    print("not null");
+    adstatus = 1;
+  }
+
+  return adstatus;
 }

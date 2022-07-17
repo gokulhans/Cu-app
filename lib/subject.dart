@@ -50,65 +50,76 @@ class _SublistState extends State<Sublist> {
                       return const Center(
                         child: SpinKitCircle(
                           size: 80,
-                          color: Colors.blue,
+                          color: Colors.green,
                         ),
                       );
                     } else {
-                      return Container(
-                        padding: const EdgeInsets.only(
-                          left: 12,
-                          right: 12,
-                          top: 12,
-                        ),
-                        child: ListView.builder(
-                            itemCount: snapshot.data.length,
-                            itemBuilder: (context, i) {
-                              return Container(
-                                height: 60,
-                                margin: const EdgeInsets.only(
-                                  left: 12,
-                                  right: 12,
-                                  top: 6,
-                                  bottom: 6,
-                                ),
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(12),
-                                  boxShadow: [
-                                    BoxShadow(
-                                        color: Colors.black.withOpacity(0.05),
-                                        blurRadius: 3,
-                                        spreadRadius: 4)
-                                  ],
-                                  color: Colors.blue,
-                                ),
-                                child: Center(
-                                  child: TextButton(
-                                      child: Text(
-                                        snapshot.data[i].name,
-                                        style: const TextStyle(
-                                            color: Colors.white,
-                                            fontWeight: FontWeight.w600,
-                                            fontSize: 18),
-                                      ),
-                                      onPressed: () {
-                                        // Navigator.of(context)
-                                        //     .pushNamed('module');
-                                        Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (context) => Type(title:widget.title+snapshot.data[i].name + '/')),
-                                        );
-                                      }),
-                                ),
-                                // ListTile(
+                      if (snapshot.data.length == 0) {
+                        return const Center(
+                            child: Text(
+                          'No Content is available right now.\nWe will Update it with in august 31.',
+                          style: TextStyle(fontWeight: FontWeight.w800),
+                        ));
+                      } else {
+                        return Container(
+                          padding: const EdgeInsets.only(
+                            left: 12,
+                            right: 12,
+                            top: 12,
+                          ),
+                          child: ListView.builder(
+                              itemCount: snapshot.data.length,
+                              itemBuilder: (context, i) {
+                                return Container(
+                                  height: 60,
+                                  margin: const EdgeInsets.only(
+                                    left: 12,
+                                    right: 12,
+                                    top: 6,
+                                    bottom: 6,
+                                  ),
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(12),
+                                    boxShadow: [
+                                      BoxShadow(
+                                          color: Colors.black.withOpacity(0.05),
+                                          blurRadius: 3,
+                                          spreadRadius: 2)
+                                    ],
+                                    color: Colors.white,
+                                  ),
+                                  child: Center(
+                                    child: TextButton(
+                                        child: Text(
+                                          snapshot.data[i].name,
+                                          style: const TextStyle(
+                                              color: Colors.green,
+                                              fontWeight: FontWeight.w600,
+                                              fontSize: 18),
+                                        ),
+                                        onPressed: () {
+                                          // Navigator.of(context)
+                                          //     .pushNamed('module');
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) => Type(
+                                                    title: widget.title +
+                                                        snapshot.data[i].name +
+                                                        '/')),
+                                          );
+                                        }),
+                                  ),
+                                  // ListTile(
 
-                                //   title: Text(snapshot.data[i].item),
-                                //   subtitle: Text(snapshot.data[i].name),
-                                //   trailing: Text(snapshot.data[i]._id),
-                                // ),
-                              );
-                            }),
-                      );
+                                  //   title: Text(snapshot.data[i].item),
+                                  //   subtitle: Text(snapshot.data[i].name),
+                                  //   trailing: Text(snapshot.data[i]._id),
+                                  // ),
+                                );
+                              }),
+                        );
+                      }
                     }
                   }))),
     );

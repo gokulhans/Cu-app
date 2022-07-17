@@ -8,15 +8,14 @@ class Courses extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      backgroundColor: Colors.white,
-      body: Courselist());
+    return const Scaffold(backgroundColor: Colors.white, body: Courselist());
   }
 }
 
-
 class Courselist extends StatefulWidget {
-  const Courselist({Key? key,}) : super(key: key);
+  const Courselist({
+    Key? key,
+  }) : super(key: key);
 
   @override
   _CourselistState createState() => _CourselistState();
@@ -30,13 +29,13 @@ class _CourselistState extends State<Courselist> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: FutureBuilder(
-          future: getSubjects("Courses"), 
+          future: getSubjects("Courses"),
           builder: (context, AsyncSnapshot snapshot) {
             if (snapshot.data == null) {
-              return const Center( 
+              return const Center(
                 child: SpinKitCircle(
                   size: 80,
-                  color: Colors.blue,
+                  color: Colors.green,
                 ),
               );
             } else {
@@ -54,38 +53,48 @@ class _CourselistState extends State<Courselist> {
                         margin: const EdgeInsets.only(
                           left: 12,
                           right: 12,
-                          top: 6,
-                          bottom: 6,
+                          top: 8,
+                          bottom: 8,
                         ),
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(12),
-                          boxShadow: [
-                            BoxShadow(
-                                color: Colors.black.withOpacity(0.05),
-                                blurRadius: 3,
-                                spreadRadius: 4)
-                          ],
-                          color: Colors.blue,
-                        ),
+                            color: Colors.white30,
+                            borderRadius: BorderRadius.circular(50),
+                            boxShadow: const [
+                              // Shadow for top-left corner
+                              BoxShadow(
+                                color: Colors.grey,
+                                offset: Offset(1, 1),
+                                blurRadius: 2,
+                                spreadRadius: 0.3,
+                              ),
+                              // Shadow for bottom-right corner
+                              BoxShadow(
+                                color: Colors.white,
+                                offset: Offset(-1, -1),
+                                blurRadius: 1,
+                                spreadRadius: 3,
+                              ),
+                            ]),
                         child: Center(
                           child: TextButton(
-                              child: Text(
-                                snapshot.data[i].name,
-                                style: const TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: 18),
-                              ),
-                              onPressed: () {
-                          var title = snapshot.data[i].name;
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => Semester(
-                                      title: title,
-                                    )),
-                          );
-                        },),
+                            child: Text(
+                              snapshot.data[i].name,
+                              style: TextStyle(
+                                  color: Colors.green[500],
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 17),
+                            ),
+                            onPressed: () {
+                              var title = snapshot.data[i].name;
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Semester(
+                                          title: title,
+                                        )),
+                              );
+                            },
+                          ),
                         ),
                       );
                     }),

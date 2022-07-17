@@ -45,7 +45,7 @@ class ListViewBuilder extends StatelessWidget {
       body: Column(
         children: [
           Container(
-            height: 200,
+            height: 250,
             color: Colors.white,
             padding: const EdgeInsets.only(top: 10),
             child: ListView.builder(

@@ -38,14 +38,14 @@ class Pyqpscreen extends StatelessWidget {
             return const Center(
               child: SpinKitCircle(
                 size: 80,
-                color: Colors.blue,
+                color: Colors.green,
               ),
             );
           } else {
             if (snapshot.data.length == 0) {
               return const Center(
                   child: Text(
-                'This Page is Empty',
+                'No Content is available right now.\nWe will Update it with in august 31.',
                 style: TextStyle(fontWeight: FontWeight.w800),
               ));
             } else {

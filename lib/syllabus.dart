@@ -9,9 +9,10 @@ class Syllabus extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(drawer: NavDrawer(), 
-    backgroundColor: Colors.white,
-    body: const Syllabuslist());
+    return Scaffold(
+        drawer: NavDrawer(),
+        backgroundColor: Colors.white,
+        body: const Syllabuslist());
   }
 }
 
@@ -38,7 +39,7 @@ class _SyllabuslistState extends State<Syllabuslist> {
               return const Center(
                 child: SpinKitCircle(
                   size: 80,
-                  color: Colors.blue,
+                  color: Colors.green,
                 ),
               );
             } else {
@@ -65,29 +66,29 @@ class _SyllabuslistState extends State<Syllabuslist> {
                             BoxShadow(
                                 color: Colors.black.withOpacity(0.05),
                                 blurRadius: 3,
-                                spreadRadius: 4)
+                                spreadRadius: 2)
                           ],
-                          color: Colors.blue,
+                          color: Colors.white,
                         ),
                         child: Center(
                           child: TextButton(
                               child: Text(
-                                snapshot.data[i].link,
+                                snapshot.data[i].course,
                                 style: const TextStyle(
-                                    color: Colors.white,
+                                    color: Colors.green,
                                     fontWeight: FontWeight.w600,
                                     fontSize: 18),
                               ),
-                              onPressed: () async{
+                              onPressed: () async {
                                 var url = snapshot.data[i].link;
-                        if (await canLaunchUrl(Uri.parse(url))) {
-                          await launchUrl(Uri.parse(url),
-                              mode: LaunchMode.externalApplication);
-                          //  await launch(url,
-                          //   forceWebView: false, enableJavaScript: true);
-                        } else {
-                          throw 'Could not launch $url';
-                        }
+                                if (await canLaunchUrl(Uri.parse(url))) {
+                                  await launchUrl(Uri.parse(url),
+                                      mode: LaunchMode.externalApplication);
+                                  //  await launch(url,
+                                  //   forceWebView: false, enableJavaScript: true);
+                                } else {
+                                  throw 'Could not launch $url';
+                                }
                               }),
                         ),
                         // ListTile(

@@ -43,56 +43,59 @@ class Semlist extends StatelessWidget {
       'Semester-6'
     ];
     List<String> semname = ['S 1', 'S 2', 'S 3', 'S 4', 'S 5', 'S 6'];
-    return Center(
-        child: GridView.builder(
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 3,
-      ),
-      primary: false,
-      padding: const EdgeInsets.all(10),
-      itemCount: semesters.length,
-      itemBuilder: (context, int index) {
-        return TextButton(
-          child: Column(
-            children: <Widget>[
-              Container(
-                height: 66,
-                width: 66,
-                decoration: BoxDecoration(
-                    color: Colors.blue,
-                    shape: BoxShape.circle,
-                    boxShadow: [
-                      BoxShadow(
-                          color: Colors.black.withOpacity(0.05),
-                          blurRadius: 3,
-                          spreadRadius: 4)
-                    ]),
-                child: Center(
-                    child: Text(
-                  semname[index],
-                  style: const TextStyle(
-                      fontWeight: FontWeight.w900,
-                      fontSize: 18,
-                      color: Colors.white),
-                )),
-              ),
-              SizedBox(
-                height: 8,
-              ),
-              Text(semesters[index])
-            ],
-          ),
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => Subject(
-                        title: title + '/' + semesters[index] + '/',
-                      )),
-            );
-          },
-        );
-      },
-    ));
+    return Container(
+      padding: EdgeInsets.only(top: 32),
+      child: Center(
+          child: GridView.builder(
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 3,
+        ),
+        primary: false,
+        padding: const EdgeInsets.all(10),
+        itemCount: semesters.length,
+        itemBuilder: (context, int index) {
+          return TextButton(
+            child: Column(
+              children: <Widget>[
+                Container(
+                  height: 66,
+                  width: 66,
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      shape: BoxShape.circle,
+                      boxShadow: [
+                        BoxShadow(
+                            color: Colors.black.withOpacity(0.05),
+                            blurRadius: 3,
+                            spreadRadius: 4)
+                      ]),
+                  child: Center(
+                      child: Text(
+                    semname[index],
+                    style: const TextStyle(
+                        fontWeight: FontWeight.w900,
+                        fontSize: 18,
+                        color: Colors.green),
+                  )),
+                ),
+                SizedBox(
+                  height: 8,
+                ),
+                Text(semesters[index],style: TextStyle(color: Colors.green,fontWeight: FontWeight.w900),)
+              ],
+            ),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => Subject(
+                          title: title + '/' + semesters[index] + '/',
+                        )),
+              );
+            },
+          );
+        },
+      )),
+    );
   }
 }

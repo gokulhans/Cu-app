@@ -35,36 +35,36 @@ class _SupportuslistState extends State<Supportuslist> {
       backgroundColor: Colors.white,
       body: Center(
         child: Container(
-            height: 60,
-            margin: const EdgeInsets.only(
-              left: 50,
-              right: 50,
-            ),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(12),
-              boxShadow: [
-                BoxShadow(
-                    color: Colors.black.withOpacity(0.05),
-                    blurRadius: 3,
-                    spreadRadius: 4)
-              ],
-              color: Colors.red,
-            ),
-            child: Center(
-              child: TextButton(
-                  child: const Text(
-                    'Support Us',
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w900,
-                        fontSize: 18),
-                  ),
-                  onPressed: () {
-                    admobHelper.createInterVideoad();
-                  }),
-            ),
+          height: 60,
+          margin: const EdgeInsets.only(
+            left: 50,
+            right: 50,
           ),
-          
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(12),
+            boxShadow: [
+              BoxShadow(
+                  color: Colors.black.withOpacity(0.05),
+                  blurRadius: 3,
+                  spreadRadius: 4)
+            ],
+            color: Colors.red,
+          ),
+          child: Center(
+            child: TextButton(
+                child: const Text(
+                  'Support Us',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w900,
+                      fontSize: 18),
+                ),
+                onPressed: () {
+                  admobHelper.createInterad();
+                  Navigator.of(context).pushNamed('about');
+                }),
+          ),
+        ),
       ),
     );
   }

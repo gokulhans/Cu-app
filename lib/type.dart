@@ -56,16 +56,16 @@ class _TypelistState extends State<Typelist> {
               BoxShadow(
                   color: Colors.black.withOpacity(0.05),
                   blurRadius: 3,
-                  spreadRadius: 4)
+                  spreadRadius: 2)
             ],
-            color: Colors.blue,
+            color: Colors.white,
           ),
           child: Center(
             child: TextButton(
                 child: Text(
                   'Videos',
                   style: const TextStyle(
-                      color: Colors.white,
+                      color: Colors.green,
                       fontWeight: FontWeight.w900,
                       fontSize: 18),
                 ),
@@ -105,16 +105,16 @@ class _TypelistState extends State<Typelist> {
               BoxShadow(
                   color: Colors.black.withOpacity(0.05),
                   blurRadius: 3,
-                  spreadRadius: 4)
+                  spreadRadius: 2)
             ],
-            color: Colors.blue,
+            color: Colors.white,
           ),
           child: Center(
             child: TextButton(
                 child: Text(
                   'Q Pappers',
                   style: const TextStyle(
-                      color: Colors.white,
+                      color: Colors.green,
                       fontWeight: FontWeight.w900,
                       fontSize: 18),
                 ),

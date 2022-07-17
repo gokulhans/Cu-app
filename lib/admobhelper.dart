@@ -108,44 +108,47 @@ class AdmobHelper {
     _interstitialAd = null;
   }
 
-  void createInterVideoad() {
-    InterstitialAd.load(
-      adUnitId: 'ca-app-pub-9660935149220558/7541808780',
-      // adUnitId: 'ca-app-pub-3940256099942544/1033173712',
-      request: AdRequest(),
-      adLoadCallback:
-          InterstitialAdLoadCallback(onAdLoaded: (InterstitialAd ad) {
-        _interstitialAd = ad;
-        num_of_attempt_load = 0;
-        showInterVideoad();
-      }, onAdFailedToLoad: (LoadAdError error) {
-        num_of_attempt_load + 1;
-        _interstitialAd = null;
-        if (num_of_attempt_load <= 1) {
-          createInterVideoad();
-        }
-      }),
-    );
-  }
+
+  // void createInterVideoad() {
+  //   InterstitialAd.load(
+  //     adUnitId: 'ca-app-pub-9660935149220558/7541808780',
+  //     // adUnitId: 'ca-app-pub-3940256099942544/1033173712',
+  //     request: AdRequest(),
+  //     adLoadCallback:
+  //         InterstitialAdLoadCallback(onAdLoaded: (InterstitialAd ad) {
+  //       _interstitialAd = ad;
+  //       num_of_attempt_load = 0;
+  //       showInterVideoad();
+  //     }, onAdFailedToLoad: (LoadAdError error) {
+  //       num_of_attempt_load + 1;
+  //       _interstitialAd = null;
+  //       if (num_of_attempt_load <= 1) {
+  //         createInterVideoad();
+  //       }
+  //     }),
+  //   );
+  // }
 
 // show interstitial ads to user
-  void showInterVideoad() {
-    if (_interstitialAd == null) {
-      print("null");
-      return;
-    }
-    _interstitialAd!.fullScreenContentCallback = FullScreenContentCallback(
-        onAdShowedFullScreenContent: (InterstitialAd ad) {
-      print("ad onAdshowedFullscreen");
-    }, onAdDismissedFullScreenContent: (InterstitialAd ad) {
-      print("ad Disposed");
-      ad.dispose();
-    }, onAdFailedToShowFullScreenContent: (InterstitialAd ad, AdError aderror) {
-      print('$ad OnAdFailed $aderror');
-      ad.dispose();
-      createInterVideoad();
-    });
-    _interstitialAd!.show();
-    _interstitialAd = null;
-  }
+//   void showInterVideoad() {
+//     if (_interstitialAd == null) {
+//       print("null");
+//       return;
+//     }
+//     _interstitialAd!.fullScreenContentCallback = FullScreenContentCallback(
+//         onAdShowedFullScreenContent: (InterstitialAd ad) {
+//       print("ad onAdshowedFullscreen");
+//     }, onAdDismissedFullScreenContent: (InterstitialAd ad) {
+//       print("ad Disposed");
+//       ad.dispose();
+//     }, onAdFailedToShowFullScreenContent: (InterstitialAd ad, AdError aderror) {
+//       print('$ad OnAdFailed $aderror');
+//       ad.dispose();
+//       createInterVideoad();
+//     });
+//     _interstitialAd!.show();
+//     _interstitialAd = null;
+//   }
+
+
 }
