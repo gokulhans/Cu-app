@@ -58,17 +58,27 @@ class Semlist extends StatelessWidget {
             child: Column(
               children: <Widget>[
                 Container(
-                  height: 66,
-                  width: 66,
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      shape: BoxShape.circle,
-                      boxShadow: [
-                        BoxShadow(
-                            color: Colors.black.withOpacity(0.05),
-                            blurRadius: 3,
-                            spreadRadius: 4)
-                      ]),
+                  height: 72,
+                  width: 72,
+                   decoration: BoxDecoration(
+                            color: Colors.white30,
+                            borderRadius: BorderRadius.circular(50),
+                            boxShadow: const [
+                              // Shadow for top-left corner
+                              BoxShadow(
+                                color: Colors.grey,
+                                offset: Offset(2, 2),
+                                blurRadius: 2,
+                                spreadRadius: 3,
+                              ),
+                              // Shadow for bottom-right corner
+                              BoxShadow(
+                                color: Colors.white,
+                                offset: Offset(-1, -1),
+                                blurRadius: 2,
+                                spreadRadius: 3,
+                              ),
+                            ]),
                   child: Center(
                       child: Text(
                     semname[index],

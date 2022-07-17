@@ -27,9 +27,7 @@ class Syllabus {
 }
 
 class Ads {
-      String id, inter, video,banner,all;
+      String _id,ad;
     Ads(
-        this.id,
-        this.inter,
-        this.video,this.banner,this.all);
+        this._id,this.ad);
 }

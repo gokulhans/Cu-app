@@ -53,7 +53,7 @@ class _SupportuslistState extends State<Supportuslist> {
           child: Center(
             child: TextButton(
                 child: const Text(
-                  'Support Us',
+                  'About Us',
                   style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.w900,

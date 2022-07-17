@@ -56,7 +56,7 @@ class Pyqpscreen extends StatelessWidget {
                   itemBuilder: (context, i) {
                     return TextButton(
                       onPressed: () async {
-                        admobHelper.createInterad();
+                        // admobHelper.createInterad();
 
                         var url = snapshot.data[i].link;
                         if (await canLaunchUrl(Uri.parse(url))) {

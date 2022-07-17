@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:note_app/methods/fetchdata.dart';
 
 class AdmobHelper {
   static String get bannerID => Platform.isAndroid
@@ -67,24 +68,26 @@ class AdmobHelper {
   // }
 
   // create interstitial ads
+
   void createInterad() {
-    InterstitialAd.load(
-      // adUnitId: 'ca-app-pub-3940256099942544/8691691433',
-      adUnitId: 'ca-app-pub-9660935149220558/4113904557',
-      request: AdRequest(),
-      adLoadCallback:
-          InterstitialAdLoadCallback(onAdLoaded: (InterstitialAd ad) {
-        _interstitialAd = ad;
-        num_of_attempt_load = 0;
-        showInterad();
-      }, onAdFailedToLoad: (LoadAdError error) {
-        num_of_attempt_load + 1;
-        _interstitialAd = null;
-        if (num_of_attempt_load <= 1) {
-          createInterad();
-        }
-      }),
-    );
+    print('called');
+      InterstitialAd.load(
+        // adUnitId: 'ca-app-pub-3940256099942544/1033173712',
+        adUnitId: 'ca-app-pub-9660935149220558/4113904557',
+        request: AdRequest(),
+        adLoadCallback:
+            InterstitialAdLoadCallback(onAdLoaded: (InterstitialAd ad) {
+          _interstitialAd = ad;
+          num_of_attempt_load = 0;
+          showInterad();
+        }, onAdFailedToLoad: (LoadAdError error) {
+          num_of_attempt_load + 1;
+          _interstitialAd = null;
+          if (num_of_attempt_load <= 1) {
+            createInterad();
+          }
+        }),
+      );
   }
 
   // show interstitial ads to user
@@ -107,7 +110,6 @@ class AdmobHelper {
     _interstitialAd!.show();
     _interstitialAd = null;
   }
-
 
   // void createInterVideoad() {
   //   InterstitialAd.load(
@@ -149,6 +151,5 @@ class AdmobHelper {
 //     _interstitialAd!.show();
 //     _interstitialAd = null;
 //   }
-
 
 }

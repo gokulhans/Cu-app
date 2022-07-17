@@ -1,4 +1,5 @@
 import 'package:http/http.dart' as http;
+import 'package:note_app/models/ad.dart';
 import 'dart:convert';
 
 import 'package:note_app/models/models.dart';
@@ -101,31 +102,36 @@ Future getNoti() async {
     Noti noti = Noti(u["_id"], u["name"], u["content"], u["link"]);
     notis.add(noti);
   }
-
+  print(notis);
   return notis;
 }
-  var adstatus = 0;
 
+// var adstatus = 0;
 
-Future getAds() async {
-  var response =
-      await http.get(Uri.https('studygramcu.herokuapp.com', 'ads-status'));
-  var jsonData = jsonDecode(response.body);
-  List<Ads> ads = [];
+// Future getAds() async {
+//   var response =
+//       await http.get(Uri.https('studygramcu.herokuapp.com', 'ads-status'));
+//   var jsonData = jsonDecode(response.body);
+//   List<Ads> ads = [];
 
-  for (var u in jsonData) {
-    Ads ad = Ads(u["_id"], u["inter"], u["video"], u["banner"], u["all"]);
-    ads.add(ad);
-  }
-  var a = await ads;
-  print(ads);
-  if (ads == null) {
-  adstatus = 0;
-    print("null");
-  } else {
-    print("not null");
-    adstatus = 1;
-  }
+//   for (var u in jsonData) {
+//     Ads ad = Ads(u["_id"],u["ad"]);
+//     ads.add(ad);
+//   }
 
-  return adstatus;
-}
+//   var a = await ads;
+//   if (a == null) {
+//     adstatus = 0;
+//     print("null");
+//   } else {
+//     adstatus = 1;
+//     print("not null");
+//   }
+
+//   return adstatus;
+// }
+
+// getadstatus() {
+//   print(adstatus);
+//   return adstatus;
+// }

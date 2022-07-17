@@ -51,15 +51,24 @@ class _TypelistState extends State<Typelist> {
             bottom: 6,
           ),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(12),
-            boxShadow: [
-              BoxShadow(
-                  color: Colors.black.withOpacity(0.05),
-                  blurRadius: 3,
-                  spreadRadius: 2)
-            ],
-            color: Colors.white,
-          ),
+              color: Colors.white30,
+              borderRadius: BorderRadius.circular(50),
+              boxShadow: const [
+                // Shadow for top-left corner
+                BoxShadow(
+                  color: Colors.grey,
+                  offset: Offset(1, 1),
+                  blurRadius: 2,
+                  spreadRadius: 0.3,
+                ),
+                // Shadow for bottom-right corner
+                BoxShadow(
+                  color: Colors.white,
+                  offset: Offset(-1, -1),
+                  blurRadius: 1,
+                  spreadRadius: 3,
+                ),
+              ]),
           child: Center(
             child: TextButton(
                 child: Text(
@@ -100,15 +109,24 @@ class _TypelistState extends State<Typelist> {
             right: 20,
           ),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(12),
-            boxShadow: [
-              BoxShadow(
-                  color: Colors.black.withOpacity(0.05),
-                  blurRadius: 3,
-                  spreadRadius: 2)
-            ],
-            color: Colors.white,
-          ),
+              color: Colors.white30,
+              borderRadius: BorderRadius.circular(50),
+              boxShadow: const [
+                // Shadow for top-left corner
+                BoxShadow(
+                  color: Colors.grey,
+                  offset: Offset(1, 1),
+                  blurRadius: 2,
+                  spreadRadius: 0.3,
+                ),
+                // Shadow for bottom-right corner
+                BoxShadow(
+                  color: Colors.white,
+                  offset: Offset(-1, -1),
+                  blurRadius: 1,
+                  spreadRadius: 3,
+                ),
+              ]),
           child: Center(
             child: TextButton(
                 child: Text(

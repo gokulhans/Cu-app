@@ -39,8 +39,9 @@ class _ModlistState extends State<Modlist> {
     return Scaffold(
         body: Container(
           margin: EdgeInsets.only(top: 8),
-      child: Card(
-          child: ListView.builder(
+      child: Builder(
+        builder: (context) {
+          return ListView.builder(
               itemCount: modules.length,
               itemBuilder: (context, i) {
                 return TextButton(
@@ -50,6 +51,7 @@ class _ModlistState extends State<Modlist> {
                           fontWeight: FontWeight.w800,
                           fontSize: 16),
                     ),
+                    
                     onPressed: () {
                       Navigator.push(
                         context,
@@ -59,7 +61,9 @@ class _ModlistState extends State<Modlist> {
                                     widget.title + modules[i]+'/')),
                       );
                     });
-              })),
+              });
+        }
+      ),
     ));
   }
 }

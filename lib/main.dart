@@ -24,36 +24,48 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:google_fonts/google_fonts.dart';
-
-const AndroidNotificationChannel channel = AndroidNotificationChannel(
-    'high_importance_channel', // id
-    'High Importance Notifications', // title
-    'This channel is used for important notifications.', // description
-    importance: Importance.high,
-    playSound: true);
-
-final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
-    FlutterLocalNotificationsPlugin();
+import 'firebase_options.dart';
 
 Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
+  // If you're going to use other Firebase services in the background, such as Firestore,
+  // make sure you call `initializeApp` before using other Firebase services.
   await Firebase.initializeApp();
-  print('A bg message just showed up :  ${message.messageId}');
+
+  print("Handling a background message: ${message.messageId}");
 }
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   AdmobHelper.initialize();
-  // AdmobHelper admobHelper = new AdmobHelper();
-  // Timer.periodic(Duration(seconds: 600), (timer) {
-  //   admobHelper.createInterad();
-  // });
+  AdmobHelper admobHelper = new AdmobHelper();
+  Timer.periodic(Duration(seconds: 600), (timer) {
+    admobHelper.createInterad();
+  });
 
-  // getAds();
+  // await getAds();
+  
+  
   // print(adstatus);
   // var adss = adstatus;
   // if (adss == 1) {
   //   print("object");
   // }
+
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  FirebaseMessaging messaging = FirebaseMessaging.instance;
+  FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
+
+  FirebaseMessaging.onMessage.listen((RemoteMessage message) {
+    print('Got a message whilst in the foreground!');
+    print('Message data: ${message.data}');
+
+    if (message.notification != null) {
+      print('Message also contained a notification: ${message.notification}');
+    }
+  });
+
   runApp(const MyApp());
 }
 

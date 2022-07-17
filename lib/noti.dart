@@ -70,16 +70,25 @@ class _SyllabuslistState extends State<Syllabuslist> {
                           top: 6,
                           bottom: 6,
                         ),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(12),
-                          boxShadow: [
-                            BoxShadow(
-                                color: Colors.black.withOpacity(0.05),
-                                blurRadius: 3,
-                                spreadRadius: 2)
-                          ],
-                          color: Colors.white,
-                        ),
+                         decoration: BoxDecoration(
+                            color: Colors.white30,
+                            borderRadius: BorderRadius.circular(50),
+                            boxShadow: const [
+                              // Shadow for top-left corner
+                              BoxShadow(
+                                color: Colors.grey,
+                                offset: Offset(1, 1),
+                                blurRadius: 2,
+                                spreadRadius: 0.3,
+                              ),
+                              // Shadow for bottom-right corner
+                              BoxShadow(
+                                color: Colors.white,
+                                offset: Offset(-1, -1),
+                                blurRadius: 1,
+                                spreadRadius: 3,
+                              ),
+                            ]),
                         child: Center(
                           child: TextButton(
                               child: Text(
