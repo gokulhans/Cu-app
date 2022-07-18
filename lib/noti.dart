@@ -12,7 +12,6 @@ class Noti extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: NavDrawer(),
-     
       body: const Syllabuslist(),
     );
   }
@@ -62,7 +61,7 @@ class _SyllabuslistState extends State<Syllabuslist> {
                           top: 6,
                           bottom: 6,
                         ),
-                         decoration: BoxDecoration(
+                        decoration: BoxDecoration(
                             color: Colors.white30,
                             borderRadius: BorderRadius.circular(50),
                             boxShadow: const [

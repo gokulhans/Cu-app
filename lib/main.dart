@@ -211,13 +211,12 @@ class _MainPageState extends State<MainPage> {
               Icons.share,
               color: Colors.green,
             ),
-            onPressed: 
-              () async {
-                const message =
-                    "Studygram is a place for calicut university students. Previous Year Question Papers ,Studymaterials,Video Classes are Available";
-                const appurl =
-                    "https://play.google.com/store/apps/details?id=com.gbroz.studygram";
-                await Share.share("$message \n $appurl");
+            onPressed: () async {
+              const message =
+                  "Studygram is a place for calicut university students. Previous Year Question Papers ,Studymaterials,Video Classes are Available";
+              const appurl =
+                  "https://play.google.com/store/apps/details?id=com.gbroz.studygram";
+              await Share.share("$message \n $appurl");
             },
           ),
         ],

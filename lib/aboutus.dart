@@ -82,11 +82,11 @@ class ListViewBuilder extends StatelessWidget {
                           itemCount: snapshot.data.length,
                           itemBuilder: (context, i) {
                             return ListTile(
-                                contentPadding: const EdgeInsets.only(
-                                    left: 50, right: 50),
+                                contentPadding:
+                                    const EdgeInsets.only(left: 50, right: 50),
                                 trailing: TextButton(
                                   onPressed: () async {
-                                    var url =  snapshot.data[i].link;
+                                    var url = snapshot.data[i].link;
                                     if (await canLaunchUrl(Uri.parse(url))) {
                                       await launchUrl(Uri.parse(url),
                                           mode: LaunchMode
@@ -96,14 +96,14 @@ class ListViewBuilder extends StatelessWidget {
                                     }
                                   },
                                   child: Text(
-                                     snapshot.data[i].value,
+                                    snapshot.data[i].value,
                                     style: const TextStyle(
                                         color: Colors.green,
                                         fontSize: 15,
                                         fontWeight: FontWeight.w800),
                                   ),
                                 ),
-                                title: Text( snapshot.data[i].key,
+                                title: Text(snapshot.data[i].key,
                                     style: const TextStyle(
                                         fontSize: 15,
                                         fontWeight: FontWeight.w800)));

@@ -69,7 +69,6 @@ class Copyright extends StatelessWidget {
                         }
                       },
                     ),
-                   
                     ListTile(
                       leading: Icon(Icons.copyright),
                       title: Text('studynotes.in'),

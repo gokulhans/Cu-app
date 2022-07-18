@@ -10,9 +10,7 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        color: Colors.white,
-        child: MainPage()),
+      body: Container(color: Colors.white, child: MainPage()),
       drawer: NavDrawer(),
     );
   }
@@ -42,7 +40,7 @@ class _MainPageState extends State<MainPage> {
                   SizedBox(
                     height: 12,
                   ),
-                  
+
                   SizedBox(
                     height: 24,
                   ),
@@ -294,10 +292,11 @@ class _MainPageState extends State<MainPage> {
                     ],
                   ),
                   SizedBox(
-                              height: 20,
-                            ),
+                    height: 20,
+                  ),
                   Container(
-                    margin: EdgeInsets.only(left: 30, right: 30, top: 10,bottom: 10),
+                    margin: EdgeInsets.only(
+                        left: 30, right: 30, top: 10, bottom: 10),
                     width: double.infinity,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
