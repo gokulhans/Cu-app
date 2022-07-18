@@ -55,8 +55,7 @@ class ListViewBuilder extends StatelessWidget {
       'https://www.instagram.com/fe_y_z_/'
     ];
 
-    return ListView(
-      shrinkWrap: true,
+    return Column(
       children: [
         Container(
           height: 300,
@@ -113,23 +112,25 @@ class ListViewBuilder extends StatelessWidget {
               }),
         ),
         Expanded(
-          child: Container(
-            // height: 300,
-            color: Colors.white,
-            padding: const EdgeInsets.only(
-              left: 30,
-              right: 10,
-            ),
-            child: Center(
-              child: SingleChildScrollView(
-                child: Text(
-                  'We offers study material for university studies. \n\nWhat You can find here ? \nPrevious question papers \nModal questions \nVideo Classes \nStudy materials \nSyllabus \nPDF books \nTime tables \nProject \nResults \n\nHave any doubts, message us..',
-                  style: GoogleFonts.poppins(
-                    color: Colors.green,
-                    textStyle: Theme.of(context).textTheme.headline4,
-                    fontSize: 16,
-                    // fontWeight: FontWeight.w600,
-                    fontStyle: FontStyle.normal,
+          child: Center(
+            child: Container(
+              // height: 300,
+              color: Colors.white,
+              padding: const EdgeInsets.only(
+                left: 30,
+                right: 0,
+              ),
+              child: Center(
+                child: SingleChildScrollView(
+                  child: Text(
+                    'We offers study material for university studies. \n\nWhat You can find here ? \nPrevious question papers \nVideo Classes \nSyllabus \nPDF books \nTime tables \nProject \nResults \n\nHave any doubts, message us..',
+                    style: GoogleFonts.poppins(
+                      color: Colors.green,
+                      textStyle: Theme.of(context).textTheme.headline4,
+                      fontSize: 16,
+                      // fontWeight: FontWeight.w600,
+                      fontStyle: FontStyle.normal,
+                    ),
                   ),
                 ),
               ),
