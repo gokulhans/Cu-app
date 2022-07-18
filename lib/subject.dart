@@ -58,7 +58,7 @@ class _SublistState extends State<Sublist> {
                         return const Center(
                             child: Text(
                           'No Content is available right now.\nWe will Update it with in august 31.',
-                          style: TextStyle(fontWeight: FontWeight.w800),
+                          style: TextStyle(fontWeight: FontWeight.w800,),
                         ));
                       } else {
                         return Container(

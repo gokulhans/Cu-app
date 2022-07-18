@@ -106,6 +106,23 @@ Future getNoti() async {
   return notis;
 }
 
+
+Future getAboutus() async {
+  var link = 'aboutus';
+
+  var response = await http.get(Uri.https('studygramcu.herokuapp.com', link));
+  var jsonData = jsonDecode(response.body);
+
+  List<Aboutus> aboutus = [];
+
+  for (var u in jsonData) {
+    Aboutus about = Aboutus(u["_id"], u["key"], u["value"],u["link"]);
+    aboutus.add(about);
+  }
+
+  return aboutus;
+}
+
 // var adstatus = 0;
 
 // Future getAds() async {

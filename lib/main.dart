@@ -83,7 +83,7 @@ class _MyAppState extends State<MyApp> {
         textTheme: const TextTheme(
           headline1: TextStyle(color: Colors.deepPurpleAccent),
           headline2: TextStyle(color: Colors.deepPurpleAccent),
-          bodyText2: TextStyle(color: Colors.deepPurpleAccent),
+          bodyText2: TextStyle(color: Colors.pinkAccent),
           subtitle1: TextStyle(color: Colors.pinkAccent),
         ),
       ),
@@ -209,7 +209,7 @@ class _MainPageState extends State<MainPage> {
             padding: const EdgeInsets.symmetric(horizontal: 24),
             icon: const Icon(
               Icons.share,
-              color: Colors.teal,
+              color: Colors.green,
             ),
             onPressed: 
               () async {
