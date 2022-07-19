@@ -1,6 +1,7 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:note_app/admobhelper.dart';
 import 'package:note_app/semester.dart';
 import 'package:note_app/sidebar.dart';
 
@@ -18,6 +19,7 @@ class Home extends StatelessWidget {
 
 class MainPage extends StatefulWidget {
   MainPage({Key? key}) : super(key: key);
+  AdmobHelper admobHelper = new AdmobHelper();
 
   @override
   State<MainPage> createState() => _MainPageState();
@@ -51,6 +53,9 @@ class _MainPageState extends State<MainPage> {
                     children: <Widget>[
                       TextButton(
                         onPressed: () {
+                            AdmobHelper admobHelper = new AdmobHelper();
+                          admobHelper.createInterad();
+                          admobHelper.showInterad();
                           var title = 'Bca';
                           Navigator.push(
                             context,
@@ -91,6 +96,9 @@ class _MainPageState extends State<MainPage> {
                       ),
                       TextButton(
                         onPressed: () {
+                            AdmobHelper admobHelper = new AdmobHelper();
+                          admobHelper.createInterad();
+                          admobHelper.showInterad();
                           var title = 'Bsc-CS';
                           Navigator.push(
                             context,
@@ -131,6 +139,9 @@ class _MainPageState extends State<MainPage> {
                       ),
                       TextButton(
                         onPressed: () {
+                            AdmobHelper admobHelper = new AdmobHelper();
+                          admobHelper.createInterad();
+                          admobHelper.showInterad();
                           var title = 'Bcom';
                           Navigator.push(
                             context,
@@ -171,6 +182,9 @@ class _MainPageState extends State<MainPage> {
                       ),
                       TextButton(
                         onPressed: () {
+                            AdmobHelper admobHelper = new AdmobHelper();
+                          admobHelper.createInterad();
+                          admobHelper.showInterad();
                           var title = 'BBA';
                           Navigator.push(
                             context,
@@ -211,6 +225,9 @@ class _MainPageState extends State<MainPage> {
                       ),
                       TextButton(
                         onPressed: () {
+                            AdmobHelper admobHelper = new AdmobHelper();
+                          admobHelper.createInterad();
+                          admobHelper.showInterad();
                           var title = 'Bscpsychology';
                           Navigator.push(
                             context,
@@ -251,8 +268,12 @@ class _MainPageState extends State<MainPage> {
                       ),
                       TextButton(
                         onPressed: () {
+                            AdmobHelper admobHelper = new AdmobHelper();
+                          admobHelper.createInterad();
+                          admobHelper.showInterad();
                           var title = 'BAEnglish';
                           Navigator.push(
+                            
                             context,
                             MaterialPageRoute(
                                 builder: (context) => Semester(
@@ -307,6 +328,9 @@ class _MainPageState extends State<MainPage> {
                     ),
                     child: TextButton(
                         onPressed: () {
+                          AdmobHelper admobHelper = new AdmobHelper();
+                          admobHelper.createInterad();
+                          admobHelper.showInterad();
                           var title = 'Common-Subjects';
                           Navigator.push(
                             context,

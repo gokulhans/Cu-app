@@ -72,8 +72,8 @@ class AdmobHelper {
   void createInterad() {
     print('called');
       InterstitialAd.load(
-        // adUnitId: 'ca-app-pub-3940256099942544/1033173712',
         adUnitId: 'ca-app-pub-9660935149220558/4113904557',
+        // adUnitId: 'ca-app-pub-3940256099942544/1033173712',
         request: AdRequest(),
         adLoadCallback:
             InterstitialAdLoadCallback(onAdLoaded: (InterstitialAd ad) {

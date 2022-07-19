@@ -47,6 +47,9 @@ void main() async {
   // if (adss == 1) {
   //   print("object");
   // }
+  // AdmobHelper admobHelper = new AdmobHelper();
+
+  // admobHelper.createInterad();
 
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
